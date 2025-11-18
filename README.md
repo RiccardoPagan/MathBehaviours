@@ -15,4 +15,4 @@ This repository contains materials for a project that aims to examine how math-r
 2. Move to your desired directory:
    cd /path/to/your/desired/folder
 4. Clone the repository:
-   git clone <[repository-url](https://github.com/RiccardoPagan/MathBehaviours.git)>
+   git clone https://github.com/RiccardoPagan/MathBehaviours.git
