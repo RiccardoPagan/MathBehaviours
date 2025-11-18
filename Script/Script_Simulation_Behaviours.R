@@ -6,6 +6,7 @@ gc()
 library(psyphy)
 library(MASS)
 library(ggplot2)
+library(dplyr)
 
 # for reproducibility
 set.seed(42)
@@ -23,6 +24,7 @@ Grade <- ifelse(Class < (round(N_Classes) / 2), 4, 5)
 Age <- round(runif(N, 9, 10), 1)
 Age <- ifelse(Grade == 5, Age + 1, Age)
 Gender <- sample(c("M", "F"), size = N, replace = T)
+
 
 # Child ability (theta) ~ N(0,1)
 ability <- rnorm(N, mean = 0, sd = 1)
@@ -87,7 +89,7 @@ pc <- round(plogis(pc) * (40-10)+10)
 wor <- rnorm(N, 0, 1)
 sigma_wor <- 0.5
 worry <- wor + rnorm(N, 0, sigma_wor)
-worry <- round(plogis(worry) * (40-10)+10)
+worry <- round(plogis(worry) * (12-3)+3)
 
 # metacognition
 meta <- rnorm(N, 0, 1)
@@ -138,10 +140,10 @@ beta_hint <- c(b0 = -0.2, avoid = -0.4, anx =  0.9, buoy = -0.3)
 res <- simulate_from_betas(beta_skip, beta_hint, anx_z, avoid_z, buoy_z)
 
 # check if P3 is working as we want
-cat("Proporzione osservazioni dove P3 (self) diminuisce con avoidance (deriv < 0):\n")
+cat("Proportion of observations where P3 (self) decreases with avoidance (deriv < 0):\n")
 print(mean(res$deriv_P3_avoid < 0))
 
-cat("Proporzione osservazioni dove P3 (self) aumenta con buoyancy (deriv > 0):\n")
+cat("Proportion of observations where P3 (self) increases with buoyancy (deriv > 0):\n")
 print(mean(res$deriv_P3_buoy > 0))
 
 summary(res$deriv_P3_avoid)
@@ -247,19 +249,15 @@ for (j in 1:N) {
 # OUTPUT
 ########################################
 df <- df[order(df$ID, df$session, df$item), ]
-write.csv(df, "Data/DatasetSimulato.csv", row.names = F)
 
+math_ability_df <- df %>%
+  filter(session == 1) %>%
+  group_by(ID) %>%
+  summarise(math_ability = sum(accuracy))
 
+df <- df %>%
+  left_join(math_ability_df, by = "ID")
 
+write.csv(df, "Data/SimulatedDatasetBehaviours.csv", row.names = F)
 
-
-#cat("Simulazione terminata ed esportato in file 'DatasetSimulato.csv'")
-table(df$gender)/n_item
-
-
-# pr1 <- subset(df, session == 1)
-# pr2 <- subset(df, session == 2)
-# 
-# cor(pr1$worry_pre, pr2$worry_pre)
-# cor(pr1$worry_post, pr2$worry_post)
-# summary(pr1$worry_post)
+#table(df$gender)/n_item
