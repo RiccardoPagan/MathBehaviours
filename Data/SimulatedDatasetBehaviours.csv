@@ -1,4 +1,4 @@
-"id","Gender","Age","Grade","Class","item","session","accuracy","skip","help","self","math_anxiety","buoyancy","avoidance","pc_trait","worry","pc_state","math_ability"
+"id","Gender","Age","Grade","Class","item","session","accuracy","skip","help","self","math_anxiety","buoyancy","avoidance","sc_trait","worry","sc_state","math_ability_T0"
 1,"M",9.9,4,1,4,1,0,NA,NA,NA,26,26,38,22,6,6,11
 1,"M",9.9,4,1,6,1,1,NA,NA,NA,26,26,38,22,6,6,11
 1,"M",9.9,4,1,7,1,1,NA,NA,NA,26,26,38,22,6,6,11
