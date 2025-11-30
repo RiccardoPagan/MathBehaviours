@@ -47,7 +47,7 @@ Model selection will rely on information-criteria (AIC/BIC). Assumptions of ordi
 <br><br>
 <br><br>
 
-**RQ2:** Do skipping problems, help-seeking and self-reliance behaviours predict students’ mathematical performance?
+**RQ2:** To what extent do trait-and-state level math attitudes (math anxiety, academic buoyancy, math avoidance, math self-competence, and worry) predict students’ math behaviours (skipping, help-seeking, self-reliance behaviours) during the mathematical task?
 
 **HP2:** 
 Once the functional structure of students’ behavioural choices has been established (i.e., ordered or categorical), we will examine how trait ans state attitudes  predict variability in these behaviours. Specifically, higher academic buoyancy and lower avoidance are expected to be associated with more self-reliant choices, whereas higher worry and higher avoidance during the task are expected to relate to increase avoidance behaviours. More help-seeking behaviours are expected to relate with moderate worry and higher buoyancy. These associations are hypothesized to hold after controlling for relevant covariates, including students’ trait math anxiety, trait self-concept, math ability (T0), and gender. Overall, if behavioural choices reflect a graded continuum, predictors should display monotonic effects consistent with the underlying order of engagement; if behaviours represent distinct qualitative categories, predictors should instead differentiate specific behavioural pathways without implying a single ordered direction.

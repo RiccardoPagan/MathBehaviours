@@ -62,7 +62,7 @@ avoidance <- round(plogis(avoidance) * (40-10)+10) %>%
 # perceived competence (trait)
 hart <- rnorm(N, 0, 1)
 pc <- hart + rnorm(N, 0, sigma)
-pc_trait <- round(plogis(pc) * (40-10)+10) %>%
+sc_trait <- round(plogis(pc) * (40-10)+10) %>%
   rep(each=n_item)
 
 
@@ -80,8 +80,8 @@ worry <- round(plogis(worry) * (12-3)+3) %>%
 
 # perceived competence (state)
 pc_st <- rnorm(N, 0, 1)
-pc_state <- pc_st + rnorm(N, 0, sigma)
-pc_state <- round(plogis(pc_state) * (12-3)+3) %>%
+sc_state <- pc_st + rnorm(N, 0, sigma)
+sc_state <- round(plogis(sc_state) * (12-3)+3) %>%
   rep(each=n_item)
 
 
@@ -118,7 +118,7 @@ item <- replicate(N, sample(1:n_item, size = n_item, replace = F)) %>%
 session <- rep(c(rep(1, n_item_session), rep(2, n_item_session)), N)
 
 df <- data.frame(id, Gender, Age, Grade, Class, item, session, math_anxiety, 
-                 buoyancy, avoidance, pc_trait, worry, pc_state, anx_z, avoid_z, buoy_z)
+                 buoyancy, avoidance, sc_trait, worry, sc_state, anx_z, avoid_z, buoy_z)
 
 df$b <- difficulty[df$item]
 df$theta <- ability[df$id]
@@ -164,14 +164,14 @@ df[df$session == 1, c("skip", "help", "self")] <- NA
 
 df <- df %>%
   select(id, Gender, Age, Grade, Class, item, session, accuracy,
-         skip, help, self, math_anxiety, buoyancy, avoidance, pc_trait, 
-         worry, pc_state) %>%
+         skip, help, self, math_anxiety, buoyancy, avoidance, sc_trait, 
+         worry, sc_state) %>%
   arrange(id, session, item, Age)
 
 ma_df <- df %>%
   filter(session == 1) %>%
   group_by(id) %>%
-  summarise(math_ability = sum(accuracy))
+  summarise(math_ability_T0 = sum(accuracy))
 
 df <- df %>%
   left_join(ma_df, by = "id")

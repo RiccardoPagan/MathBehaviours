@@ -1,0 +1,36 @@
+=========================================
+LOO categorical model
+=========================================
+
+
+Computed from 4000 by 9000 log-likelihood matrix.
+
+         Estimate    SE
+elpd_loo  -7934.8  54.5
+p_loo        70.5   0.6
+looic     15869.6 109.1
+------
+MCSE of elpd_loo is 0.1.
+MCSE and ESS estimates assume MCMC draws (r_eff in [0.5, 2.2]).
+
+All Pareto k estimates are good (k < 0.7).
+See help('pareto-k-diagnostic') for details.
+
+
+=========================================
+LOO ordered model
+=========================================
+
+
+Computed from 4000 by 9000 log-likelihood matrix.
+
+         Estimate   SE
+elpd_loo  -8663.1 45.8
+p_loo       165.6  1.5
+looic     17326.2 91.7
+------
+MCSE of elpd_loo is 0.2.
+MCSE and ESS estimates assume MCMC draws (r_eff in [0.5, 2.2]).
+
+All Pareto k estimates are good (k < 0.7).
+See help('pareto-k-diagnostic') for details.
