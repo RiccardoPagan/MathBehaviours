@@ -20,7 +20,7 @@ format:
 During both sessions, participants will complete mathematical tasks and, in the first session, also a set of self-report questionnaires assessing emotional factors and attitudes toward mathematics, including both trait measures (i.e., math anxiety, math avoidance, math self-competence, and academic buoyancy), state measures (i.e., worry and math self-competence).
 In the first session, participants will complete 15 mathematical operations, followed by the two state questionnaires (worry and math self-competence). After other 15 mathematical operations, participants will be asked to answer to four trait questionnaires (math anxiety, math avoidance, math self-competence, and academic buoyancy). The order of presentations of these questionnaires will be counterbalanced within the participants.
 
-In the second session, participants will complete a set of 30 operations with 3 possible choiches (skip, help and solve indipendently). All tasks will be administered in small groups via computer in the classroom (see Figure 1a, 1b, and 2). 
+In the second session, participants will complete a set of 30 operations with 3 possible choices (skip, help and solve independently). All tasks will be administered in small groups via computer in the classroom (see Figure 1a, 1b, and 2). 
 
 ![Figure 1a. Session 1 - Order A](index_files/ord_A.png)
 

@@ -18,11 +18,13 @@ n_item_session <- 30
 N_per_Class <- 20       
 N_Classes <- N / N_per_Class
 ID <- 1:N
-Class <- rep(1:ceiling(N_Classes), each = N_per_Class)[1:N] %>%
-  rep(each=n_item) 
+Class <- rep(1:ceiling(N_Classes), each = N_per_Class)[1:N]
 Grade <- ifelse(Class < (round(N_Classes) / 2), 4, 5)
 Age <- round(runif(N, 9, 10), 1)
 Age <- ifelse(Grade == 5, Age + 1, Age)
+Class <- rep(Class, each=n_item)
+Grade <- rep(Grade, each=n_item)
+Age <- rep(Age, each=n_item) 
 Gender <- sample(c("M", "F"), size = N, replace = T) %>%
   rep(each=n_item)
 
@@ -164,7 +166,7 @@ df <- df %>%
   select(id, Gender, Age, Grade, Class, item, session, accuracy,
          skip, help, self, math_anxiety, buoyancy, avoidance, pc_trait, 
          worry, pc_state) %>%
-  arrange(id, session, item)
+  arrange(id, session, item, Age)
 
 ma_df <- df %>%
   filter(session == 1) %>%

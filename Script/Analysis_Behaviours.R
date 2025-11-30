@@ -7,6 +7,7 @@ library(brms)
 library(dplyr)
 library(lme4)
 library(effects)
+#library(ordinal)
 
 # import dataset
 d <- read.csv("Data/SimulatedDatasetBehaviours.csv", sep = ",")
@@ -21,15 +22,66 @@ d$choice = case_when(
 )
 
 ########################################################################
-# RQ1: State and trait measures as predictors of math behaviours
+# RQ1: Math behaviours are ordered or categorical?
 ########################################################################
 
+my_formula <- choice ~ buoyancy + avoidance + worry + pc_state + math_anxiety + pc_trait + math_ability + Gender + (1|id)
+
+# model with behaviours as categorical variable
+fit_cat <- brm(
+  formula = my_formula,
+  data = d,
+  family = categorical(link = "logit"),
+  cores = 4
+)
+
+
+# model with choice as ordered (skip < help < self)
+d$choice <- factor(d$choice, 
+                   levels = c("skip", "help", "self"), 
+                   ordered = TRUE)
+
+# model with behaviours as ordered variable
+fit_ord <- brm(
+  formula = my_formula,
+  data = d,
+  family = cumulative(link = "logit"),
+  cores = 4
+)
+
+
+
+# model comparison
+comparison1 <- loo(fit_ord, fit_cat)
+
+loo_cat = loo(fit_cat)
+loo_ord = loo(fit_ord)
+
+comparison2 <- loo_compare(loo_cat, loo_ord)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#model with choice as categorical variable
+
 fit1 <- brm(choice ~ math_anxiety + buoyancy + avoidance + pc + worry +
-            metacognition + math_ability + (1|ID), data=d,
-          family=categorical(), cores=4)
+              metacognition + math_ability + (1|ID), data=d,
+            family=categorical(), cores=4)
 
 summary(fit1)
 plot(fit1)
+
 
 ########################################################################
 # RQ2: Math behaviours as predictor of math performance
