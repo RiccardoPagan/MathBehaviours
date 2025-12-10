@@ -38,31 +38,49 @@ difficulty <- rnorm(n_item, mean = 0, sd = 1)
 ########################################
 # TRAIT MEASURERES SIMULATION
 ########################################
-sigma = 0.5
+sigma <- 0.5
+var_names <- c("MA", "buoy", "avoid", "sc_trait", "worry", "sc_state")
+n_vars <- length(var_names)
+Sigma <- matrix(0.5,nrow=n_vars,ncol=n_vars) + diag(n_vars)*(0.5)
+rownames(Sigma) <- colnames(Sigma) <- var_names
+
+Sigma["MA", "buoy"] <- -0.5
+Sigma["MA", "sc_trait"] <- -0.4
+Sigma["MA", "sc_state"] <- -0.4
+
+Sigma["buoy", "avoid"] <- -0.5
+Sigma["buoy", "worry"] <- -0.5
+
+Sigma["avoid", "sc_trait"] <- -0.5
+Sigma["avoid", "sc_state"] <- -0.5
+
+Sigma["sc_trait", "worry"] <- -0.4
+
+Sigma["worry", "sc_state"] <- -0.4
+
+Sigma[lower.tri(Sigma)] <- t(Sigma)[lower.tri(Sigma)]
+rIntTraits <- MASS::mvrnorm(n=N, mu = rep(0, n_vars), Sigma = Sigma)
 
 # MA
-ma <- rnorm(N, 0, 1)
-math_anxiety <- ma + rnorm(N, 0, sigma)
+math_anxiety <- rIntTraits[, "MA"] + rnorm(length(rIntTraits[, "MA"]), 0, sigma)
 math_anxiety <- round(plogis(math_anxiety) * (45-9)+9) %>%
   rep(each=n_item)
 
 
 # buoyancy
-buo <- rnorm(N, 0, 1)
-buoyancy <- buo + rnorm(N, 0, sigma)
+
+buoyancy <- rIntTraits[, "buoy"] + rnorm(length(rIntTraits[, "buoy"]), 0, sigma)
 buoyancy <- round(plogis(buoyancy) * (28-4)+4) %>%
   rep(each=n_item)
 
 # avoidance
-av <- rnorm(N, 0, 1)
-avoidance <- av + rnorm(N, 0, sigma)
+avoidance <- rIntTraits[, "avoid"] + rnorm(length(rIntTraits[, "avoid"]), 0, sigma)
 avoidance <- round(plogis(avoidance) * (40-10)+10) %>%
   rep(each=n_item)
 
 # perceived competence (trait)
-hart <- rnorm(N, 0, 1)
-pc <- hart + rnorm(N, 0, sigma)
-sc_trait <- round(plogis(pc) * (40-10)+10) %>%
+sc <- rIntTraits[, "sc_trait"] + rnorm(length(rIntTraits[, "sc_trait"]), 0, sigma)
+sc_trait <- round(plogis(sc) * (40-10)+10) %>%
   rep(each=n_item)
 
 
@@ -71,16 +89,13 @@ sc_trait <- round(plogis(pc) * (40-10)+10) %>%
 ########################################
 
 # worry
-wor <- rnorm(N, 0, 1)
-sigma <- 0.5
-worry <- wor + rnorm(N, 0, sigma)
+worry <- rIntTraits[, "worry"] + rnorm(length(rIntTraits[, "worry"]), 0, sigma)
 worry <- round(plogis(worry) * (12-3)+3) %>%
   rep(each=n_item)
 
 
 # perceived competence (state)
-pc_st <- rnorm(N, 0, 1)
-sc_state <- pc_st + rnorm(N, 0, sigma)
+sc_state <- rIntTraits[, "sc_state"] + rnorm(length(rIntTraits[, "sc_state"]), 0, sigma)
 sc_state <- round(plogis(sc_state) * (12-3)+3) %>%
   rep(each=n_item)
 

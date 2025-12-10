@@ -7,7 +7,7 @@ Computed from 4000 by 9000 log-likelihood matrix.
 
           Estimate    SE
 elpd_waic  -7934.7  54.5
-p_waic        70.4   0.6
+p_waic        71.0   0.6
 waic       15869.3 109.0
 
 
@@ -19,6 +19,6 @@ WAIC ordered model
 Computed from 4000 by 9000 log-likelihood matrix.
 
           Estimate   SE
-elpd_waic  -8662.9 45.8
-p_waic       165.3  1.5
-waic       17325.7 91.7
+elpd_waic  -8662.7 45.8
+p_waic       165.0  1.5
+waic       17325.5 91.6

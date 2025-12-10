@@ -4,7 +4,7 @@ LOO COMPARISON
 
         elpd_diff se_diff
 fit_cat    0.0       0.0 
-fit_ord -728.3      34.7 
+fit_ord -728.2      34.7 
 
 
 =========================================
@@ -13,4 +13,4 @@ WAIC COMPARISON
 
         elpd_diff se_diff
 fit_cat    0.0       0.0 
-fit_ord -728.2      34.7 
+fit_ord -728.1      34.7 
