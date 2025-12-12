@@ -68,7 +68,6 @@ math_anxiety <- round(plogis(math_anxiety) * (45-9)+9) %>%
 
 
 # buoyancy
-
 buoyancy <- rIntTraits[, "buoy"] + rnorm(length(rIntTraits[, "buoy"]), 0, sigma)
 buoyancy <- round(plogis(buoyancy) * (28-4)+4) %>%
   rep(each=n_item)

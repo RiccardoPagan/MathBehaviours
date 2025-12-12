@@ -6,7 +6,7 @@ library(brms)
 library(dplyr)
 library(lme4)
 library(effects)
-#library(ordinal)
+library(ordinal)
 
 Path <- getwd()
 
@@ -151,7 +151,8 @@ summary(fit_cat)
 plot(fit_cat)
 
 
-
+m1 <- clmm(formula = my_formula_ord, data = d, link = "logit")
+summary(m1)
 
 
 
