@@ -105,9 +105,9 @@ simData = function(N = 300, hypothesis = 1){
     if (hypothesis == 1) {
       # Buoyancy --> + self
       # Avoidance/Anxiety --> + skip
-      beta_ord <- c(wor = -0.5, avoid = -0.6, buoy = 0.5)
+      beta_ord <- c(wor = -0.5, avoid = -0.6, buoy = 0.5, sc = 0.4)
     } else {
-      beta_ord <- c(wor = 0, avoid = 0, buoy = 0) #H0
+      beta_ord <- c(wor = 0, avoid = 0, buoy = 0, sc = 0) #H0
     }
     
     tot_rows <- N * n_item
@@ -118,11 +118,12 @@ simData = function(N = 300, hypothesis = 1){
     wor_z <- scale(worry)
     avoid_z <- scale(avoidance)
     buoy_z <- scale(buoyancy)
+    sc_z <- scale(sc_state)
       
     df <- data.frame(id, Gender, Age, Grade, Class, item, session, 
                        math_anxiety, buoyancy, avoidance, sc_trait,
                        worry, sc_state,
-                       wor_z, avoid_z, buoy_z)
+                       wor_z, avoid_z, buoy_z, sc_z)
       
     prob_corr <- function(theta, b) { 1 / (1 + exp(-(theta - b))) }
     df$b <- difficulty[df$item]
@@ -140,6 +141,7 @@ simData = function(N = 300, hypothesis = 1){
     yLinear <- beta_ord["wor"] * df$wor_z[i_s2] + 
       beta_ord["avoid"] * df$avoid_z[i_s2] + 
       beta_ord["buoy"] * df$buoy_z[i_s2] + 
+      beta_ord["sc"] * df$sc_z[i_s2] +
       randEff +
       rlogis(length(i_s2))
     
@@ -175,6 +177,8 @@ simData = function(N = 300, hypothesis = 1){
     d$avoidance <- scale(d$avoidance)
     d$worry <- scale(d$worry)
     d$math_anxiety <- scale(d$math_anxiety)
+    d$sc_state <- scale(d$sc_state)
+    d$sc_trait <- scale(d$sc_trait)
     
     
     ########################################
@@ -208,7 +212,7 @@ simData = function(N = 300, hypothesis = 1){
   return(X)
 }
 
-simData(N=200, hypothesis = 0)
+simData(N=200, hypothesis = 1)
 
 ##############################################################
 # H1
@@ -222,7 +226,7 @@ hypothesis = 1
 N = 300
 clusterExport(cl, varlist = c("simData", "N", "hypothesis"))
 start_time <- Sys.time()
-results = parLapply(cl, 1:1000, function(x) simData(N, hypothesis))
+results = parLapply(cl, 1:5000, function(x) simData(N, hypothesis))
 end_time <- Sys.time()
 results
 test_results <- (end_time - start_time)
@@ -230,7 +234,7 @@ test_results
 
 stopCluster(cl)
 
-save(results,file="results1000_H1.RData")
+save(results,file="results5000_H1.RData")
 
 ##############################################################
 # H0
@@ -243,34 +247,28 @@ cl = makeCluster(num_cores)
 hypothesis = 0
 N = 300
 clusterExport(cl, varlist = c("simData", "N", "hypothesis"))
-results = parLapply(cl, 1:1000, function(x) simData(N, hypothesis))
+results = parLapply(cl, 1:5000, function(x) simData(N, hypothesis))
 results
 
 stopCluster(cl)
 
-save(results,file="results1000_H0.RData")
+save(results,file="results5000_H0.RData")
 
 ##############################################################
 # RUN POWER ANALYSIS AND CHECK PARAMETERS
 
 library(dplyr)
 
-load("results1000_H1.RData")
+setwd("/Users/riccardopagan/Desktop/MathBehaviours/Git/Script")
+load("results5000_H1.RData")
 x = do.call(rbind,results)
 lapply(x,median, na.rm=T)
 lapply(x[, grep("b_|se_", names(x))], sd, na.rm=T)
 
 p_unadj = x[,grep("p_",names(x))]
 apply(p_unadj,2,function(x) mean(x<.05, na.rm=T))
-mean(apply(p_unadj[,c("p_buoy","p_avoid","p_worry")],1,function(x) mean(x<.05)==1), na.rm=T)
+mean(apply(p_unadj[,c("p_buoy","p_avoid","p_worry", "p_sc")],1,function(x) mean(x<.05)==1), na.rm=T)
 
 p_adj = t(apply(p_unadj, 1, function(x) p.adjust(x, method = "fdr")))
 apply(p_adj,2,function(x) mean(x<.05, na.rm=T))
-mean(apply(p_adj[,c("p_buoy","p_avoid","p_worry")],1,function(x) mean(x<.05)==1), na.rm=T)
-
-
-
-
-
-
-
+mean(apply(p_adj[,c("p_buoy","p_avoid","p_worry", "p_sc")],1,function(x) mean(x<.05)==1), na.rm=T)
