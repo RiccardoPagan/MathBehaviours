@@ -105,7 +105,7 @@ simData = function(N = 300, hypothesis = 1){
     if (hypothesis == 1) {
       # Buoyancy --> + self
       # Avoidance/Anxiety --> + skip
-      beta_ord <- c(wor = -0.5, avoid = -0.6, buoy = 0.5, sc = 0.4)
+      beta_ord <- c(wor = -0.25, avoid = -0.30, buoy = 0.30, sc = 0.25)
     } else {
       beta_ord <- c(wor = 0, avoid = 0, buoy = 0, sc = 0) #H0
     }
@@ -133,16 +133,22 @@ simData = function(N = 300, hypothesis = 1){
       
     i_s2 <- which(df$session == 2)
     
-    sdRand <- .5
-    subjInt <- rnorm(ID, 0, sdRand)
-    randEff <- subjInt[df$id[i_s2]]
+    # setting variability of subject
+    TauSubj <- 1
+    subjInt <- rnorm(ID, 0, TauSubj)
+    rSubj <- subjInt[df$id[i_s2]]
+    
+    #setting variability of items
+    # tauItem <- .5
+    # ItemInt <- rnorm(n_item, 0, tauItem)
+    # rItem <- ItemInt[df$item[i_s2]]
     
     # generate linear component
     yLinear <- beta_ord["wor"] * df$wor_z[i_s2] + 
       beta_ord["avoid"] * df$avoid_z[i_s2] + 
       beta_ord["buoy"] * df$buoy_z[i_s2] + 
       beta_ord["sc"] * df$sc_z[i_s2] +
-      randEff +
+      rSubj +
       rlogis(length(i_s2))
     
     # cut points to separate skip/help/self
@@ -234,7 +240,7 @@ test_results
 
 stopCluster(cl)
 
-save(results,file="results5000_H1.RData")
+save(results,file="results5000_H1_v3.RData")
 
 ##############################################################
 # H0
@@ -247,20 +253,25 @@ cl = makeCluster(num_cores)
 hypothesis = 0
 N = 300
 clusterExport(cl, varlist = c("simData", "N", "hypothesis"))
+start_time2 <- Sys.time()
 results = parLapply(cl, 1:5000, function(x) simData(N, hypothesis))
+end_time2 <- Sys.time()
 results
+
+test_results2 <- (end_time2 - start_time2)
+test_results2
 
 stopCluster(cl)
 
-save(results,file="results5000_H0.RData")
+save(results,file="results5000_H0_v3.RData")
 
 ##############################################################
 # RUN POWER ANALYSIS AND CHECK PARAMETERS
 
 library(dplyr)
 
-setwd("/Users/riccardopagan/Desktop/MathBehaviours/Git/Script")
-load("results5000_H1.RData")
+#setwd("/Users/riccardopagan/Desktop/MathBehaviours/Git/Script")
+load("results5000_H1_v3.RData")
 x = do.call(rbind,results)
 lapply(x,median, na.rm=T)
 lapply(x[, grep("b_|se_", names(x))], sd, na.rm=T)
@@ -272,3 +283,11 @@ mean(apply(p_unadj[,c("p_buoy","p_avoid","p_worry", "p_sc")],1,function(x) mean(
 p_adj = t(apply(p_unadj, 1, function(x) p.adjust(x, method = "fdr")))
 apply(p_adj,2,function(x) mean(x<.05, na.rm=T))
 mean(apply(p_adj[,c("p_buoy","p_avoid","p_worry", "p_sc")],1,function(x) mean(x<.05)==1), na.rm=T)
+
+##############################################################
+
+load("results5000_H0_v3.RData")
+x_h0 = do.call(rbind, results)
+p_unadj_h0 = x_h0[, grep("p_", names(x_h0))]
+apply(p_unadj_h0, 2, function(x) mean(x < .05, na.rm=T))
+
