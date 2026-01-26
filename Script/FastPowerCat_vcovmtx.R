@@ -253,3 +253,76 @@ message("Matrices saved in the file named vcov_matrices.rds")
 #########################################################################
 
 
+#########################################################################
+# COMPARISON MATRICES FOR VARIANCES AND COVARIANCES
+#########################################################################
+
+# variance matrix for each N
+variance_matrix <- matrix(NA, nrow = length(N_grid), ncol = length(pars_interest))
+rownames(variance_matrix) <- paste0("N=", N_grid)
+colnames(variance_matrix) <- pars_interest
+
+for (i in seq_along(vcov_results)) {
+  variance_matrix[i, ] <- diag(vcov_results[[i]]$vcov_mean)
+}
+
+print(round(variance_matrix, 6))
+
+# covariance matrix for main pairs across N
+cov_pairs <- list(
+  "buoy_sc" = c("muself_buoyancy", "muself_sc_state"),
+  "buoy_avoid" = c("muself_buoyancy", "muself_avoidance"),
+  "sc_avoid" = c("muself_sc_state", "muself_avoidance")
+)
+
+covariance_matrix <- matrix(NA, nrow = length(N_grid), ncol = length(cov_pairs))
+rownames(covariance_matrix) <- paste0("N=", N_grid)
+colnames(covariance_matrix) <- names(cov_pairs)
+
+for (i in seq_along(vcov_results)) {
+  V <- vcov_results[[i]]$vcov_mean
+  for (j in seq_along(cov_pairs)) {
+    pair <- cov_pairs[[j]]
+    covariance_matrix[i, j] <- V[pair[1], pair[2]]
+  }
+}
+
+print(round(covariance_matrix, 6))
+
+# correlation matrix for the same pairs
+correlation_matrix <- matrix(NA, nrow = length(N_grid), ncol = length(cov_pairs))
+rownames(correlation_matrix) <- paste0("N=", N_grid)
+colnames(correlation_matrix) <- names(cov_pairs)
+
+for (i in seq_along(vcov_results)) {
+  V <- vcov_results[[i]]$vcov_mean
+  cor_mat <- cov2cor(V)
+  for (j in seq_along(cov_pairs)) {
+    pair <- cov_pairs[[j]]
+    correlation_matrix[i, j] <- cor_mat[pair[1], pair[2]]
+  }
+}
+
+print(round(correlation_matrix, 4))
+
+
+# final output 
+comparison_results <- list(
+  N_grid = N_grid,
+  variance_matrix = variance_matrix,
+  covariance_matrix = covariance_matrix,
+  correlation_matrix = correlation_matrix,
+  vcov_full = vcov_results  
+)
+
+saveRDS(comparison_results, "vcov_comparison.rds")
+message("Comparison matrices saved in vcov_comparison.rds")
+
+
+
+
+
+
+
+
+
