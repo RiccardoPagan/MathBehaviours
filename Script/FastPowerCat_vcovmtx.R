@@ -248,7 +248,7 @@ for (i in seq_along(N_grid)) {
 
 
 # saving the output
-saveRDS(vcov_results, "vcov_matrices_2.rds")
+saveRDS(vcov_results, "vcov_matrices.rds")
 message("Matrices saved in the file named vcov_matrices.rds")
 #########################################################################
 
