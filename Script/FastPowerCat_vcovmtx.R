@@ -211,12 +211,12 @@ simData = function(N=300, target_coef = "muself_buoyancy", hypothesis = 1){
 
 #########################################################################
 N_grid <- seq(100, 500, by = 50)
-n_reps <- 5
+n_reps <- 10
 
 
 # main parameters
-pars_interest <- c( "muself_buoyancy", "muself_sc_state", "muself_avoidance", 
-                    "muhelp_buoyancy")
+pars_interest <- c( "muself_buoyancy", "muself_sc_state", "muself_avoidance",
+                    "muself_worry", "muhelp_buoyancy", "muhelp_worry", "muhelp_sc_state")
 
 vcov_results <- list()
 
@@ -256,6 +256,7 @@ message("Matrices saved in the file named vcov_matrices.rds")
 #########################################################################
 # COMPARISON MATRICES FOR VARIANCES AND COVARIANCES
 #########################################################################
+
 
 # variance matrix for each N
 variance_matrix <- matrix(NA, nrow = length(N_grid), ncol = length(pars_interest))

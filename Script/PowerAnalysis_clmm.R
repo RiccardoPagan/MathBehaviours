@@ -229,7 +229,7 @@ num_cores = detectCores() - 1
 cl = makeCluster(num_cores)
 
 hypothesis = 1
-N = 300
+N = 400
 clusterExport(cl, varlist = c("simData", "N", "hypothesis"))
 start_time <- Sys.time()
 results = parLapply(cl, 1:5000, function(x) simData(N, hypothesis))
@@ -240,7 +240,7 @@ test_results
 
 stopCluster(cl)
 
-save(results,file="results5000_H1_v3.RData")
+save(results,file="results5000_H1_400.RData")
 
 ##############################################################
 # H0
@@ -251,7 +251,7 @@ num_cores = detectCores() - 1
 cl = makeCluster(num_cores)
 
 hypothesis = 0
-N = 300
+N = 400
 clusterExport(cl, varlist = c("simData", "N", "hypothesis"))
 start_time2 <- Sys.time()
 results = parLapply(cl, 1:5000, function(x) simData(N, hypothesis))
@@ -263,7 +263,7 @@ test_results2
 
 stopCluster(cl)
 
-save(results,file="results5000_H0_v3.RData")
+save(results,file="results5000_H0_400.RData")
 
 ##############################################################
 # RUN POWER ANALYSIS AND CHECK PARAMETERS
@@ -271,7 +271,7 @@ save(results,file="results5000_H0_v3.RData")
 library(dplyr)
 
 #setwd("/Users/riccardopagan/Desktop/MathBehaviours/Git/Script")
-load("results5000_H1_v3.RData")
+load("results5000_H1_400.RData")
 x = do.call(rbind,results)
 lapply(x,median, na.rm=T)
 lapply(x[, grep("b_|se_", names(x))], sd, na.rm=T)
@@ -286,7 +286,7 @@ mean(apply(p_adj[,c("p_buoy","p_avoid","p_worry", "p_sc")],1,function(x) mean(x<
 
 ##############################################################
 
-load("results5000_H0_v3.RData")
+load("results5000_H0_400.RData")
 x_h0 = do.call(rbind, results)
 p_unadj_h0 = x_h0[, grep("p_", names(x_h0))]
 apply(p_unadj_h0, 2, function(x) mean(x < .05, na.rm=T))

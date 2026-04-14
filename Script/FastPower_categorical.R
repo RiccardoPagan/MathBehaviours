@@ -9,7 +9,7 @@ criticalSE_from_OR <- function(OR, level = 0.95){
 #########################################################################
 
 #########################################################################
-criticalSE_from_assurance <- function(B, OR_min = 1.16,
+criticalSE_from_assurance <- function(B, OR_min = 1.1,
                                        assurance = 0.80,
                                        gamma = 0.95){
   delta <- log(OR_min)
