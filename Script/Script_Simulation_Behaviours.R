@@ -47,6 +47,7 @@ rownames(Sigma) <- colnames(Sigma) <- var_names
 Sigma["MA", "buoy"] <- -0.5
 Sigma["MA", "sc_trait"] <- -0.4
 Sigma["MA", "sc_state"] <- -0.4
+Sigma["MA", "worry"] <- 0.2
 
 Sigma["buoy", "avoid"] <- -0.5
 Sigma["buoy", "worry"] <- -0.5
@@ -55,6 +56,7 @@ Sigma["avoid", "sc_trait"] <- -0.5
 Sigma["avoid", "sc_state"] <- -0.5
 
 Sigma["sc_trait", "worry"] <- -0.4
+Sigma["sc_trait", "sc_state"] <- 0.2
 
 Sigma["worry", "sc_state"] <- -0.4
 
@@ -190,6 +192,6 @@ ma_df <- df %>%
 df <- df %>%
   left_join(ma_df, by = "id")
 
-write.csv(df, "Data/SimulatedDatasetBehaviours.csv", row.names = F)
+write.csv(df, "SimulatedDatasetBehaviours.csv", row.names = F)
 
 
