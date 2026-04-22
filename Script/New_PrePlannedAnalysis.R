@@ -25,11 +25,13 @@ d$choice_ord <- ordered(d$choice, levels = c("skip", "help", "self"))
 ########################################################################
 fit_cat <- brm(
   choice_c ~ buoyancy + avoidance + worry + sc_state + math_anxiety + sc_trait + math_ability_T0 + Gender + (1|id),
-  data = d, family = categorical(link = "logit")
+  data = d, family = categorical(link = "logit"), cores = 4, warmup = 500, iter = 1000
+  #backend = "cmdstanr", threads = threading(2)
 )
 fit_ord <- brm(
   choice_ord ~ buoyancy + avoidance + worry + sc_state + math_anxiety + sc_trait + math_ability_T0 + Gender + (1|id),
-  data = d, family = cumulative(link = "logit")
+  data = d, family = cumulative(link = "logit"), cores = 4, warmup = 500, iter = 1000
+  #backend = "cmdstanr", threads = threading(2)
 )
 
 loo_cat <- loo(fit_cat); loo_ord <- loo(fit_ord)
@@ -110,14 +112,8 @@ avoid_incl = if (FitAv_ok & RelAv_ok) "+ avoidance" else ""
 bf_worry   <- bf(worry ~ math_anxiety + math_ability_T0 + Gender + (1|id))
 bf_scstate <- bf(sc_state ~ sc_trait + math_ability_T0 + Gender + (1|id))
 
-fit_mediators <- brm(
-  bf_worry + bf_scstate + set_rescor(FALSE),
-  data = d, family = gaussian(), cores = 4
-)
-
 
 # full mediation — starting model
-
 if (model_type == "ordinal") {
   formula_full <- as.formula(paste(
     "choice_ord ~ worry + sc_state", buoy_incl, avoid_incl,
@@ -132,11 +128,9 @@ if (model_type == "ordinal") {
   bf_choice_full <- bf(formula_full, family = categorical(link = "logit"))
 }
 
-fit_choice_full <- brm(bf_choice_full, data = d, cores = 4, iter = 1000, warmup = 500)
 
 
 # partial mediation — adding of direct paths trait → choice
-
 if (model_type == "ordinal") {
   formula_partial <- as.formula(paste(
     "choice_ord ~ worry + sc_state + math_anxiety + sc_trait", buoy_incl, avoid_incl,
@@ -151,11 +145,27 @@ if (model_type == "ordinal") {
   bf_choice_partial <- bf(formula_partial, family = categorical(link = "logit"))
 }
 
-fit_choice_partial <- brm(bf_choice_partial, data = d, cores = 4, iter = 1000, warmup = 500)
+
+# creation of model partially mediated vs. model fully mediated
+fit_partial <- brm(
+  bf_worry + bf_scstate + bf_choice_partial + set_rescor(FALSE),
+  data = d, family = list(gaussian(), gaussian(), NULL),
+  cores = 4, warmup = 500, iter = 1000
+  #backend = "cmdstanr",
+  #threads = threading(2)
+)
+
+fit_full <- brm(
+  bf_worry + bf_scstate + bf_choice_full + set_rescor(FALSE),
+  data = d, family = list(gaussian(), gaussian(), NULL),
+  cores = 4, warmup = 500, iter = 1000
+  #backend = "cmdstanr",
+  #threads = threading(2)
+)
 
 # model comparison
-loo_full <- loo(fit_choice_full)
-loo_partial <- loo(fit_choice_partial)
+loo_full <- loo(fit_full)
+loo_partial <- loo(fit_partial)
 comparison_mediation <- loo_compare(loo_full, loo_partial)
 
 # model selection
@@ -164,10 +174,10 @@ models_equivalent  <- abs(comparison_mediation[2, "elpd_diff"]) <
   2 * comparison_mediation[2, "se_diff"]
 
 if (partial_is_best & !models_equivalent) {
-  best_choice_model <- fit_choice_partial
+  best_choice_model <- fit_partial
   mediation_type <- "partial"
 } else {
-  best_choice_model <- fit_choice_full
+  best_choice_model <- fit_full
   mediation_type <- "full"
 }
 
@@ -176,12 +186,12 @@ cat("Mediation type selected:", mediation_type, "\n")
 ########################################################################
 # indirect effects (path a*b)
 ########################################################################
-draws_med <- as_draws_df(fit_mediators)
+#draws_med <- as_draws_df(fit_mediators)
 draws_choice <- as_draws_df(best_choice_model)
 
 # Path "a"
-a1 <- draws_med$b_worry_math_anxiety
-a2 <- draws_med$b_scstate_sc_trait
+a1 <- draws_choice$b_worry_math_anxiety
+a2 <- draws_choice$b_scstate_sc_trait
 
 # Path "b"
 if (model_type == "ordinal") {
@@ -221,7 +231,7 @@ if (model_type == "ordinal") {
   h_sc_state <- hypothesis(best_choice_model, "sc_state > 0")
   
   hp_list <- list(
-    list(predictor = "worry",    direction = "<0", h = h_worry),
+    list(predictor = "worry", direction = "<0", h = h_worry),
     list(predictor = "sc_state", direction = ">0", h = h_sc_state)
   )
   
@@ -266,11 +276,11 @@ if (model_type == "ordinal") {
   h_sc_state_help <- hypothesis(best_choice_model, "muhelp_sc_state > 0")
   
   hp_self <- list(
-    list(predictor = "worry",    direction = "<0", h = h_worry_self),
+    list(predictor = "worry", direction = "<0", h = h_worry_self),
     list(predictor = "sc_state", direction = ">0", h = h_sc_state_self)
   )
   hp_help <- list(
-    list(predictor = "worry",    direction = "<0", h = h_worry_help),
+    list(predictor = "worry", direction = "<0", h = h_worry_help),
     list(predictor = "sc_state", direction = ">0", h = h_sc_state_help)
   )
   
