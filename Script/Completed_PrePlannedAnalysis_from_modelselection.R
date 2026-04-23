@@ -33,18 +33,18 @@ d[vars_to_scale] <- lapply(d[vars_to_scale], function(x) as.numeric(scale(x)))
 # FIT HELPER
 ########################################################################
 
-fit_choice_model <- function(formula, data) {
-  brm(
-    formula = formula,
-    data    = data,
-    family  = cumulative(link = "logit"),
-    iter    = 1000,
-    warmup  = 500,
-    chains  = 4,
-    cores   = 4,
-    seed    = 220426
-  )
-}
+# fit_choice_model <- function(formula, data) {
+#   brm(
+#     formula = formula,
+#     data    = data,
+#     family  = cumulative(link = "logit"),
+#     iter    = 1000,
+#     warmup  = 500,
+#     chains  = 4,
+#     cores   = 4,
+#     seed    = 220426
+#   )
+# }
 
 ########################################################################
 # HELPERS
@@ -179,7 +179,10 @@ fitAv = cfa(model_av, data = d_av, ordered = names(d_av))
 if(fm["cfi"] > 0.95 & fm["rmsea"] < 0.08){print("Fit indices ok: proceed!"); FitBuoy_ok_initial = TRUE
 } else {print("Initial fit insufficient - checking modification indices"); FitBuoy_ok_initial = FALSE}
 
-# STESSO PER fitAv...
+
+(fm = fitMeasures(fitAv, fit.measures=c("CFI","RMSEA")))
+if(fm["cfi"] > 0.95 & fm["rmsea"] < 0.08){print("Fit indices ok: proceed!"); FitAv_ok_initial = TRUE
+} else {print("Initial fit insufficient - checking modification indices"); FitAv_ok_initial = FALSE}
 
 ######################################################
 # MODIFICATION INDICES AND CORRELATED RESIDUALS (up to 2)
@@ -187,7 +190,7 @@ if(fm["cfi"] > 0.95 & fm["rmsea"] < 0.08){print("Fit indices ok: proceed!"); Fit
 
 # per provare
 FitBuoy_ok_initial = FALSE
-
+FitAv_ok_initial = FALSE
 
 if (!FitBuoy_ok_initial) {
   print("Inspecting modification indices for buoyancy...")
@@ -238,14 +241,63 @@ if (!FitBuoy_ok_initial) {
   }
 }
 
-# Ripeti esattamente la stessa logica per avoidance...
-# (fitAv_ok_initial, mi_av, corr_res_av, justified_pairs_av, etc.)
+if (!FitAv_ok_initial) {
+  print("Inspecting modification indices for avoidance...")
+  
+  # Get modification indices (MI > 10 as threshold for inspection)
+  mi_av <- modindices(fitAv, sort = TRUE, maximum.number = 10)
+  print(mi_av)
+  
+  # Identify correlated residuals (theoretical candidates: similar content)
+  corr_res_av <- mi_av[mi_av$lhs != mi_av$rhs & 
+                             mi_av$op == "~~" & 
+                             mi_av$mi > 10, ]
+  
+  if (nrow(corr_res_av) > 0 && nrow(corr_res_av) <= 2) {
+    # specify here the justofied pairs
+    # es. buoy1~~buoy2 (similar content), buoy3~~buoy4 (similar difficulty)
+    justified_pairs <- c("av1 ~~ av2", "av3 ~~ av4")  # modify here
+    
+    if (any(corr_res_av$rel == justified_pairs[1]) || 
+        any(corr_res_av$rel == justified_pairs[2])) {
+      
+      # Re-specify model with up to 2 correlated residuals
+      respec_model_av <- paste0(model_av, "\n",
+                                  justified_pairs[1],  # First justified pair
+                                  ifelse(nrow(corr_res_av) >= 2, 
+                                         paste0("\n", justified_pairs[2]), 
+                                         ""))
+      
+      fitAv_respec <- cfa(respec_model_av, data = d_av, ordered = names(d_av))
+      
+      # Re-evaluate fit
+      fm_respec <- fitMeasures(fitAv_respec, fit.measures=c("CFI","RMSEA"))
+      print(paste("Respecified model fit - CFI:", round(fm_respec["cfi"], 3), 
+                  "RMSEA:", round(fm_respec["rmsea"], 3)))
+      
+      if(fm_respec["cfi"] > 0.95 & fm_respec["rmsea"] < 0.08) {
+        fitAv <- fitAv_respec  # Use respecified model
+        FitAv_ok_initial <- TRUE
+        print("Respecified model meets criteria!")
+      } else {
+        print("Respecified model still does not meet criteria")
+      }
+    } else {
+      print("Suggested modifications lack theoretical justification")
+    }
+  } else {
+    print("Too many (>2) or no suitable modification indices found")
+  }
+}
+
+
 
 # Final fit_ok status (after possible respecification)
 (fm = fitMeasures(fitBuoy, fit.measures=c("CFI","RMSEA")))
 FitBuoy_ok <- isTRUE(fm["cfi"] > 0.95 && fm["rmsea"] < 0.08)
 
-# STESSO PER fitAv_ok...
+(fm = fitMeasures(fitAv, fit.measures=c("CFI","RMSEA")))
+FitAv_ok <- isTRUE(fm["cfi"] > 0.95 && fm["rmsea"] < 0.08)
 
 print(paste("Final buoyancy status:", ifelse(FitBuoy_ok, "OK", "EXCLUDED")))
 print(paste("Final avoidance status:", ifelse(FitAv_ok, "OK", "EXCLUDED")))
@@ -261,62 +313,76 @@ if(rel["alpha.ord",] > 0.50){print("Reliability ok: proceed!"); RelAv_ok = T
 }else {print("Stop there!")}
 
 
+include_buoy = FitBuoy_ok && RelBuoy_ok
+include_avoid = FitAv_ok && RelAv_ok
+
+if (include_buoy && include_avoid) {
+  buoy_avoid_cor <- cor(d$buoyancy, d$avoidance, use = "complete.obs")
+  print(paste("Buoyancy-Avoidance correlation:", round(buoy_avoid_cor, 3)))
+  
+  if (abs(buoy_avoid_cor) > 0.70) {
+    print("High multicollinearity detected - will not include both in same model")
+    # Es. include solo uno, o fai modelli separati
+    include_buoy <- TRUE  # o FALSE
+    include_avoid <- FALSE
+  }
+}
+
+
+
+
 ########################################################################
 # RQ2: STAGE 1 = PREDICTOR SELECTION, STAGE 2 = cs() SELECTION
 ########################################################################
 
 direct_terms <- c()
-if (FitBuoy_ok & RelBuoy_ok) direct_terms <- c(direct_terms, "buoyancy")
-if (FitAv_ok & RelAv_ok) direct_terms <- c(direct_terms, "avoidance")
+if (include_buoy)  direct_terms <- c(direct_terms, "buoyancy")
+if (include_avoid) direct_terms <- c(direct_terms, "avoidance")
 
 rhs_M0 <- c("worry", "sc_state", "math_ability_T0", "Gender", "(1|id)")
 rhs_M1 <- c("worry", "sc_state", direct_terms, "math_ability_T0", "Gender", "(1|id)")
 rhs_M2 <- c("worry", "sc_state", direct_terms, "math_anxiety", "sc_trait", "math_ability_T0", "Gender", "(1|id)")
 
-formula_M0 <- as.formula(paste("choice_ord ~", paste(rhs_M0, collapse = " + ")))
-formula_M1 <- as.formula(paste("choice_ord ~", paste(rhs_M1, collapse = " + ")))
-formula_M2 <- as.formula(paste("choice_ord ~", paste(rhs_M2, collapse = " + ")))
+choice_formula_M0 <- as.formula(paste("choice_ord ~", paste(rhs_M0, collapse = " + ")))
+choice_formula_M1 <- as.formula(paste("choice_ord ~", paste(rhs_M1, collapse = " + ")))
+choice_formula_M2 <- as.formula(paste("choice_ord ~", paste(rhs_M2, collapse = " + ")))
 
-# path a models
-fit_a_worry <- brm(
-  worry ~ math_anxiety + math_ability_T0 + Gender + (1 | id),
-  data = d,
-  family = gaussian(),
-  iter = 1000,
-  warmup = 500,
-  chains = 4,
-  cores = 4,
-  seed = 220426
-)
+bf_worry <- bf(worry ~ math_anxiety + math_ability_T0 + Gender + (1|id))
+bf_scstate <- bf(sc_state ~ sc_trait + math_ability_T0 + Gender + (1|id))
 
-fit_a_scstate <- brm(
-  sc_state ~ sc_trait + math_ability_T0 + Gender + (1 | id),
-  data = d,
-  family = gaussian(),
-  iter = 1000,
-  warmup = 500,
-  chains = 4,
-  cores = 4,
-  seed = 220426
-)
+fit_joint_model <- function(choice_formula, data) {
+  bf_worry <- bf(worry ~ math_anxiety + math_ability_T0 + Gender + (1|id))
+  bf_scstate <- bf(sc_state ~ sc_trait + math_ability_T0 + Gender + (1|id))
+  bf_choice <- bf(choice_formula, family = cumulative(link = "logit"))
+  
+  brm(
+    bf_worry + bf_scstate + bf_choice + set_rescor(FALSE),
+    data = data,
+    chains = 4,
+    cores = 4,
+    iter = 1000,
+    warmup = 500,
+    seed = 220426
+  )
+}
 
 # ---------------------------
 # Stage 1: M0 vs M1 vs M2
 # ---------------------------
 
-fit_M0 <- fit_choice_model(formula_M0, d)
+fit_M0 <- fit_joint_model(choice_formula_M0, d)
 fit_M0 <- add_criterion(fit_M0, c("loo", "waic"))
 
 selected_stage1_model <- fit_M0
 selected_stage1_name  <- "M0"
-stage1_terms          <- rhs_M0
-mediation_type        <- "full"
+stage1_terms <- rhs_M0
+mediation_type <- "full"
 
 fit_M1 <- NULL
 fit_M2 <- NULL
 
 if (length(direct_terms) > 0) {
-  fit_M1 <- fit_choice_model(formula_M1, d)
+  fit_M1 <- fit_joint_model(choice_formula_M1, d)
   fit_M1 <- add_criterion(fit_M1, c("loo", "waic"))
   
   comparison_M0_M1 <- loo_compare(fit_M0, fit_M1)
@@ -330,7 +396,7 @@ if (length(direct_terms) > 0) {
     stage1_terms          <- rhs_M1
     mediation_type        <- "full"
     
-    fit_M2 <- fit_choice_model(formula_M2, d)
+    fit_M2 <- fit_joint_model(choice_formula_M2, d)
     fit_M2 <- add_criterion(fit_M2, c("loo", "waic"))
     
     comparison_M1_M2 <- loo_compare(fit_M1, fit_M2)
@@ -376,7 +442,7 @@ formula_stage2_cs_worry <- as.formula(
 )
 
 # fit the example category-specific model
-fit_stage2_cs_worry <- fit_choice_model(formula_stage2_cs_worry, d)
+fit_stage2_cs_worry <- fit_joint_model(formula_stage2_cs_worry, d)
 fit_stage2_cs_worry <- add_criterion(fit_stage2_cs_worry, c("loo", "waic"))
 
 # compare the Stage-1 selected model with the cs() extension
@@ -401,8 +467,8 @@ cat("Selected ordinal structure:", selected_structure_label, "\n")
 # INDIRECT EFFECTS (a*b)
 ########################################################################
 
-draws_a_worry <- as_draws_df(fit_a_worry)
-draws_a_scstate <- as_draws_df(fit_a_scstate)
+draws_a_worry <- as_draws_df(bf_worry)
+draws_a_scstate <- as_draws_df(bf_scstate)
 
 a_ma_to_worry <- draws_a_worry$b_math_anxiety
 a_sct_to_scstate <- draws_a_scstate$b_sc_trait
@@ -511,6 +577,6 @@ print(results_rq2)
 
 saveRDS(selected_stage1_model, file = file.path(Path, "selected_stage1_model.rds"))
 saveRDS(final_choice_model, file = file.path(Path, "final_choice_model.rds"))
-write.csv(screening_summary, file = file.path(Path, "screening_summary.csv"), row.names = FALSE)
+#write.csv(screening_summary, file = file.path(Path, "screening_summary.csv"), row.names = FALSE)
 write.csv(results_indirect, file = file.path(Path, "results_indirect.csv"), row.names = FALSE)
 write.csv(results_rq2, file = file.path(Path, "results_rq2.csv"), row.names = FALSE)
