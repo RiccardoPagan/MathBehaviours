@@ -501,6 +501,12 @@ results_indirect <- bind_rows(indirect_list) %>%
 ########################################################################
 # FINAL INFERENCE ON DIRECT EFFECTS
 ########################################################################
+# NOTE. This part of code may change based on eventual predictor specified 
+# as category-specific. In this case the coefficient will be two instead of 
+# a single one. For this reason the following code may not work with predictor 
+#specified as category-specific and will be adapted.
+
+
 
 choice_effects <- list()
 
