@@ -40,7 +40,7 @@ d$choice_ord <- ordered(d$choice,
                         levels = c("skip", "help", "self"))
 
 # model with behaviours as categorical variable
-fit_cat <- brm(
+fit_cat_convert <- brm(
   formula = my_formula_cat,
   data = d,
   family = categorical(link = "logit"),
@@ -48,7 +48,7 @@ fit_cat <- brm(
 )
 
 # model with choice as ordered (skip < help < self)
-fit_ord <- brm(
+fit_ord_new <- brm(
   formula = my_formula_ord,
   data = d,
   family = cumulative(link = "logit"),
@@ -56,8 +56,10 @@ fit_ord <- brm(
 )
 
 
+
+
 # model comparison
-loo_cat <- loo(fit_cat)
+loo_cat <- loo(fit_cat_convert)
 loo_ord <- loo(fit_ord)
 comparison1 <- loo_compare(loo_cat, loo_ord)
 
@@ -141,7 +143,7 @@ comparison2 <- loo_compare(waic_cat, waic_ord)
 ########################################################################
 
 # select the best model based on model comparison
-best_model <- fit_cat  # or fit_cat based on comparison results
+best_model <- fit_cat_convert # or fit_cat based on comparison results
 model_type <- "categorical" # or 'categorical' based on comparison results 
 
 if (model_type == "ordinal") {
@@ -161,17 +163,21 @@ if (model_type == "ordinal") {
   h3_self <- hypothesis(best_model, "muself_worry < 0")
   h4_self <- hypothesis(best_model, "muself_sc_state > 0")
   
+  h1_skip <- hypothesis(best_model, "muskip_buoyancy < 0")
+  h2_skip <- hypothesis(best_model, "muskip_avoidance > 0")
+  h3_skip <- hypothesis(best_model, "muskip_worry > 0")
+  h4_skip <- hypothesis(best_model, "muskip_sc_state < 0")
   # Test for "help" vs "skip" comparison
   h1_help <- hypothesis(best_model, "muhelp_buoyancy > 0")
   h2_help <- hypothesis(best_model, "muhelp_avoidance < 0")
-  h3_help <- hypothesis(best_model, "muhelp_worry < 0")
+  h3_help <- hypothesis(best_model, "muhelp_worry > 0")
   h4_help <- hypothesis(best_model, "muhelp_sc_state > 0")
   
   # test differences between self and help (exploratory contrasts)
-  h_diff <- hypothesis(best_model, 
-                       c("muself_buoyancy > muhelp_buoyancy",
-                         "muself_sc_state > muhelp_sc_state",
-                         "muself_avoidance < muhelp_avoidance"))
+  # h_diff <- hypothesis(best_model, 
+  #                      c("muself_buoyancy > muhelp_buoyancy",
+  #                        "muself_sc_state > muhelp_sc_state",
+  #                        "muself_avoidance < muhelp_avoidance"))
   
 
   results_rq2 <- data.frame(

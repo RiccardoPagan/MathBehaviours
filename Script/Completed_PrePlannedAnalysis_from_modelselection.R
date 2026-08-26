@@ -321,10 +321,8 @@ if (include_buoy && include_avoid) {
   print(paste("Buoyancy-Avoidance correlation:", round(buoy_avoid_cor, 3)))
   
   if (abs(buoy_avoid_cor) > 0.70) {
+    # In this case factor score from an higher order model will be extracted
     print("High multicollinearity detected - will not include both in same model")
-    # Es. include solo uno, o fai modelli separati
-    include_buoy <- TRUE  # o FALSE
-    include_avoid <- FALSE
   }
 }
 

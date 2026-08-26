@@ -1,0 +1,4 @@
+"parameter","Estimate","CI.Lower","CI.Upper","Post.Prob","p_one_tailed","p_fdr","Selected_stage1_model","Mediation_type","Selected_structure"
+"worry::bcs_choiceord_worry[1]",-0.021989823081094,-0.17011770925,0.1256870055,0.605,0.395,0.4595,"M0","full","cs(worry)"
+"worry::bcs_choiceord_worry[2]",-0.235022877121,-0.3778834755,-0.0899043827750001,1,0,0,"M0","full","cs(worry)"
+"sc_state::b_choiceord_sc_state",0.00781827461452495,-0.141753314,0.162411859,0.5405,0.4595,0.4595,"M0","full","cs(worry)"
