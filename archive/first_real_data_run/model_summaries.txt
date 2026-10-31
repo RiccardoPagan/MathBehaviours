@@ -1,0 +1,220 @@
+#### final_choice_model ####
+ Family: MV(gaussian, gaussian, cumulative) 
+  Links: mu = identity; sigma = identity
+         mu = identity; sigma = identity
+         mu = logit; disc = identity 
+Formula: worry | subset(first_trial) ~ math_anxiety + math_ability_T0 + Gender 
+         sc_state | subset(first_trial) ~ sc_trait + math_ability_T0 + Gender 
+         choice_ord ~ cs(worry) + sc_state + math_ability_T0 + Gender + (1 | id) 
+   Data: data (Number of observations: 17171) 
+  Draws: 4 chains, each with iter = 1000; warmup = 500; thin = 1;
+         total post-warmup draws = 2000
+
+Multilevel Hyperparameters:
+~id (Number of levels: 547) 
+                        Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sd(choiceord_Intercept)     1.35      0.05     1.25     1.46 1.00      594
+                        Tail_ESS
+sd(choiceord_Intercept)     1283
+
+Regression Coefficients:
+                          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+worry_Intercept               0.15      0.05     0.04     0.25 1.00     4606
+scstate_Intercept            -0.18      0.05    -0.28    -0.08 1.00     4994
+choiceord_Intercept[1]       -3.22      0.09    -3.40    -3.05 1.01      378
+choiceord_Intercept[2]       -0.79      0.09    -0.96    -0.63 1.01      345
+worry_math_anxiety            0.44      0.04     0.36     0.51 1.00     4507
+worry_math_ability_T0        -0.11      0.04    -0.19    -0.03 1.01     3487
+worry_GenderM                -0.31      0.08    -0.47    -0.14 1.00     4881
+scstate_sc_trait              0.23      0.04     0.16     0.31 1.00     5135
+scstate_math_ability_T0       0.33      0.04     0.26     0.41 1.00     4325
+scstate_GenderM               0.39      0.08     0.23     0.55 1.00     6504
+choiceord_sc_state            0.01      0.08    -0.14     0.16 1.01      357
+choiceord_math_ability_T0     0.88      0.07     0.75     1.02 1.02      485
+choiceord_GenderM            -0.10      0.14    -0.36     0.16 1.01      296
+choiceord_worry[1]           -0.02      0.08    -0.17     0.13 1.01      384
+choiceord_worry[2]           -0.24      0.07    -0.38    -0.09 1.01      367
+                          Tail_ESS
+worry_Intercept               1325
+scstate_Intercept             1416
+choiceord_Intercept[1]        1007
+choiceord_Intercept[2]         909
+worry_math_anxiety            1380
+worry_math_ability_T0         1819
+worry_GenderM                 1346
+scstate_sc_trait              1526
+scstate_math_ability_T0       1484
+scstate_GenderM               1562
+choiceord_sc_state             704
+choiceord_math_ability_T0      953
+choiceord_GenderM              750
+choiceord_worry[1]             866
+choiceord_worry[2]             839
+
+Further Distributional Parameters:
+               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma_worry        0.85      0.03     0.80     0.90 1.00     6347     1369
+sigma_scstate      0.85      0.03     0.80     0.90 1.00     5225     1424
+disc_choiceord     1.00      0.00     1.00     1.00   NA       NA       NA
+
+Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+                   prior     class            coef group      resp dpar nlpar
+                  (flat)         b                       choiceord           
+                  (flat)         b         GenderM       choiceord           
+                  (flat)         b math_ability_T0       choiceord           
+                  (flat)         b        sc_state       choiceord           
+                  (flat)         b           worry       choiceord           
+                  (flat)         b                         scstate           
+                  (flat)         b         GenderM         scstate           
+                  (flat)         b math_ability_T0         scstate           
+                  (flat)         b        sc_trait         scstate           
+                  (flat)         b                           worry           
+                  (flat)         b         GenderM           worry           
+                  (flat)         b math_ability_T0           worry           
+                  (flat)         b    math_anxiety           worry           
+    student_t(3, 0, 2.5) Intercept                       choiceord           
+    student_t(3, 0, 2.5) Intercept               1       choiceord           
+    student_t(3, 0, 2.5) Intercept               2       choiceord           
+  student_t(3, 0.3, 2.5) Intercept                         scstate           
+ student_t(3, -0.2, 2.5) Intercept                           worry           
+    student_t(3, 0, 2.5)        sd                       choiceord           
+    student_t(3, 0, 2.5)        sd                    id choiceord           
+    student_t(3, 0, 2.5)        sd       Intercept    id choiceord           
+    student_t(3, 0, 2.5)     sigma                         scstate           
+    student_t(3, 0, 2.5)     sigma                           worry           
+ lb ub tag       source
+                default
+           (vectorized)
+           (vectorized)
+           (vectorized)
+           (vectorized)
+                default
+           (vectorized)
+           (vectorized)
+           (vectorized)
+                default
+           (vectorized)
+           (vectorized)
+           (vectorized)
+                default
+           (vectorized)
+           (vectorized)
+                default
+                default
+  0             default
+  0        (vectorized)
+  0        (vectorized)
+  0             default
+  0             default
+
+#### selected_stage1_model ####
+ Family: MV(gaussian, gaussian, cumulative) 
+  Links: mu = identity; sigma = identity
+         mu = identity; sigma = identity
+         mu = logit; disc = identity 
+Formula: worry | subset(first_trial) ~ math_anxiety + math_ability_T0 + Gender 
+         sc_state | subset(first_trial) ~ sc_trait + math_ability_T0 + Gender 
+         choice_ord ~ worry + sc_state + math_ability_T0 + Gender + (1 | id) 
+   Data: data (Number of observations: 17171) 
+  Draws: 4 chains, each with iter = 1000; warmup = 500; thin = 1;
+         total post-warmup draws = 2000
+
+Multilevel Hyperparameters:
+~id (Number of levels: 547) 
+                        Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sd(choiceord_Intercept)     1.34      0.05     1.25     1.46 1.01      472
+                        Tail_ESS
+sd(choiceord_Intercept)      859
+
+Regression Coefficients:
+                          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+worry_Intercept               0.15      0.05     0.05     0.25 1.00     6420
+scstate_Intercept            -0.18      0.05    -0.28    -0.08 1.00     4895
+choiceord_Intercept[1]       -3.25      0.09    -3.43    -3.08 1.01      415
+choiceord_Intercept[2]       -0.80      0.08    -0.96    -0.63 1.01      381
+worry_math_anxiety            0.44      0.04     0.36     0.52 1.00     4636
+worry_math_ability_T0        -0.11      0.04    -0.19    -0.03 1.00     3955
+worry_GenderM                -0.31      0.08    -0.46    -0.15 1.00     5805
+scstate_sc_trait              0.23      0.04     0.16     0.31 1.00     5438
+scstate_math_ability_T0       0.33      0.04     0.26     0.41 1.00     4062
+scstate_GenderM               0.39      0.08     0.23     0.55 1.00     4671
+choiceord_worry              -0.18      0.08    -0.33    -0.03 1.01      292
+choiceord_sc_state            0.02      0.08    -0.15     0.18 1.01      293
+choiceord_math_ability_T0     0.88      0.07     0.74     1.03 1.01      382
+choiceord_GenderM            -0.11      0.13    -0.37     0.14 1.01      321
+                          Tail_ESS
+worry_Intercept               1587
+scstate_Intercept             1264
+choiceord_Intercept[1]         779
+choiceord_Intercept[2]         714
+worry_math_anxiety            1501
+worry_math_ability_T0         1714
+worry_GenderM                 1729
+scstate_sc_trait              1558
+scstate_math_ability_T0       1656
+scstate_GenderM               1422
+choiceord_worry                513
+choiceord_sc_state             415
+choiceord_math_ability_T0      608
+choiceord_GenderM              550
+
+Further Distributional Parameters:
+               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma_worry        0.85      0.03     0.80     0.91 1.00     5198     1422
+sigma_scstate      0.85      0.03     0.80     0.90 1.00     4799     1386
+disc_choiceord     1.00      0.00     1.00     1.00   NA       NA       NA
+
+Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+                   prior     class            coef group      resp dpar nlpar
+                  (flat)         b                       choiceord           
+                  (flat)         b         GenderM       choiceord           
+                  (flat)         b math_ability_T0       choiceord           
+                  (flat)         b        sc_state       choiceord           
+                  (flat)         b           worry       choiceord           
+                  (flat)         b                         scstate           
+                  (flat)         b         GenderM         scstate           
+                  (flat)         b math_ability_T0         scstate           
+                  (flat)         b        sc_trait         scstate           
+                  (flat)         b                           worry           
+                  (flat)         b         GenderM           worry           
+                  (flat)         b math_ability_T0           worry           
+                  (flat)         b    math_anxiety           worry           
+    student_t(3, 0, 2.5) Intercept                       choiceord           
+    student_t(3, 0, 2.5) Intercept               1       choiceord           
+    student_t(3, 0, 2.5) Intercept               2       choiceord           
+  student_t(3, 0.3, 2.5) Intercept                         scstate           
+ student_t(3, -0.2, 2.5) Intercept                           worry           
+    student_t(3, 0, 2.5)        sd                       choiceord           
+    student_t(3, 0, 2.5)        sd                    id choiceord           
+    student_t(3, 0, 2.5)        sd       Intercept    id choiceord           
+    student_t(3, 0, 2.5)     sigma                         scstate           
+    student_t(3, 0, 2.5)     sigma                           worry           
+ lb ub tag       source
+                default
+           (vectorized)
+           (vectorized)
+           (vectorized)
+           (vectorized)
+                default
+           (vectorized)
+           (vectorized)
+           (vectorized)
+                default
+           (vectorized)
+           (vectorized)
+           (vectorized)
+                default
+           (vectorized)
+           (vectorized)
+                default
+                default
+  0             default
+  0        (vectorized)
+  0        (vectorized)
+  0             default
+  0             default
+

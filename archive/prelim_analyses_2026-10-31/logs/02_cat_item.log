@@ -1,0 +1,22 @@
+Compiling Stan program...
+Start sampling
+starting worker pid=28028 on localhost:11710 at 12:02:27.744
+starting worker pid=19644 on localhost:11710 at 12:02:28.187
+
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 1).
+Chain 1: 
+Chain 1: Gradient evaluation took 0.046154 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 461.54 seconds.
+Chain 1: Adjust your expectations accordingly!
+Chain 1: 
+Chain 1: 
+Chain 1: Iteration:   1 / 600 [  0%]  (Warmup)
+
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 2).
+Chain 2: 
+Chain 2: Gradient evaluation took 0.06666 seconds
+Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 666.6 seconds.
+Chain 2: Adjust your expectations accordingly!
+Chain 2: 
+Chain 2: 
+Chain 2: Iteration:   1 / 600 [  0%]  (Warmup)

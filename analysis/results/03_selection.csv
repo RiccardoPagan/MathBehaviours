@@ -1,0 +1,4 @@
+"step","elpd_diff","se_diff","clear"
+"M1 vs M0",0.277817564535182,0.699509183903111,FALSE
+"cs(worry_z) vs previous",21.8068393723915,7.24121083593766,TRUE
+"cs(sc_state_z) vs previous",-0.237268561021509,1.91217019379011,FALSE

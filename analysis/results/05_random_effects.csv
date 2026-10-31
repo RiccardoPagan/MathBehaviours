@@ -1,0 +1,13 @@
+"outcome","model","group","sd"
+"y_self","FULL","id",1.50133178438085
+"y_self","FULL","item",0.406099313641582
+"y_self","FULL","class",0.466169963069357
+"y_self","FULL_idonly","id",1.52557949962023
+"y_skip_vs_help","FULL","id",1.28170141245601
+"y_skip_vs_help","FULL","item",0.138538394317972
+"y_skip_vs_help","FULL","class",0.37429040814552
+"y_skip_vs_help","FULL_idonly","id",1.34005403257688
+"y_skip","FULL","id",1.21022013241391
+"y_skip","FULL","item",0.276586073881344
+"y_skip","FULL","class",0.312061387631249
+"y_skip","FULL_idonly","id",1.25219175425258

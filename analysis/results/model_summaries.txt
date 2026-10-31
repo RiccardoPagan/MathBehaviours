@@ -1,0 +1,701 @@
+#### 03_M0 ####
+ Family: cumulative 
+  Links: mu = logit; disc = identity 
+Formula: choice_ord | weights(n) ~ worry_z + sc_state_z + math_ability_T0_z + Gender + (1 | id) 
+   Data: ag (Number of observations: 1341) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Multilevel Hyperparameters:
+~id (Number of levels: 547) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     1.34      0.05     1.24     1.45 1.00     1134     1639
+
+Regression Coefficients:
+                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept[1]         -3.25      0.09    -3.43    -3.08 1.00      855     1529
+Intercept[2]         -0.80      0.09    -0.97    -0.63 1.00      787     1275
+worry_z              -0.18      0.08    -0.34    -0.03 1.00      731     1402
+sc_state_z            0.01      0.08    -0.14     0.17 1.00      843     1759
+math_ability_T0_z     0.88      0.07     0.74     1.01 1.01      863     1495
+GenderM              -0.10      0.13    -0.36     0.17 1.00      698     1253
+
+Further Distributional Parameters:
+     Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+disc     1.00      0.00     1.00     1.00   NA       NA       NA
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+                prior     class              coef group resp dpar nlpar lb ub
+               (flat)         b                                              
+               (flat)         b           GenderM                            
+               (flat)         b math_ability_T0_z                            
+               (flat)         b        sc_state_z                            
+               (flat)         b           worry_z                            
+ student_t(3, 0, 2.5) Intercept                                              
+ student_t(3, 0, 2.5) Intercept                 1                            
+ student_t(3, 0, 2.5) Intercept                 2                            
+ student_t(3, 0, 2.5)        sd                                          0   
+ student_t(3, 0, 2.5)        sd                      id                  0   
+ student_t(3, 0, 2.5)        sd         Intercept    id                  0   
+       source
+      default
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+      default
+ (vectorized)
+ (vectorized)
+      default
+ (vectorized)
+ (vectorized)
+
+#### 03_M0_cs_worry_z ####
+ Family: cumulative 
+  Links: mu = logit; disc = identity 
+Formula: choice_ord | weights(n) ~ cs(worry_z) + sc_state_z + math_ability_T0_z + Gender + (1 | id) 
+   Data: ag (Number of observations: 1341) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Multilevel Hyperparameters:
+~id (Number of levels: 547) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     1.35      0.05     1.25     1.46 1.00     1153     1973
+
+Regression Coefficients:
+                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept[1]         -3.22      0.09    -3.40    -3.03 1.00      876     1504
+Intercept[2]         -0.79      0.09    -0.96    -0.62 1.00      815     1437
+sc_state_z            0.01      0.08    -0.14     0.16 1.01      723     1248
+math_ability_T0_z     0.87      0.07     0.73     1.01 1.00      868     1697
+GenderM              -0.09      0.13    -0.35     0.17 1.00      782     1369
+worry_z[1]           -0.02      0.08    -0.17     0.14 1.00      727     1401
+worry_z[2]           -0.23      0.08    -0.38    -0.08 1.00      696     1395
+
+Further Distributional Parameters:
+     Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+disc     1.00      0.00     1.00     1.00   NA       NA       NA
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+                prior     class              coef group resp dpar nlpar lb ub
+               (flat)         b                                              
+               (flat)         b           GenderM                            
+               (flat)         b math_ability_T0_z                            
+               (flat)         b        sc_state_z                            
+               (flat)         b           worry_z                            
+ student_t(3, 0, 2.5) Intercept                                              
+ student_t(3, 0, 2.5) Intercept                 1                            
+ student_t(3, 0, 2.5) Intercept                 2                            
+ student_t(3, 0, 2.5)        sd                                          0   
+ student_t(3, 0, 2.5)        sd                      id                  0   
+ student_t(3, 0, 2.5)        sd         Intercept    id                  0   
+       source
+      default
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+      default
+ (vectorized)
+ (vectorized)
+      default
+ (vectorized)
+ (vectorized)
+
+#### 03_M0_cs_worry_z_sc_state_z ####
+ Family: cumulative 
+  Links: mu = logit; disc = identity 
+Formula: choice_ord | weights(n) ~ cs(worry_z) + cs(sc_state_z) + math_ability_T0_z + Gender + (1 | id) 
+   Data: ag (Number of observations: 1341) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Multilevel Hyperparameters:
+~id (Number of levels: 547) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     1.34      0.05     1.24     1.45 1.00      993     1911
+
+Regression Coefficients:
+                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept[1]         -3.23      0.09    -3.41    -3.06 1.00      868     1500
+Intercept[2]         -0.80      0.09    -0.97    -0.62 1.00      800     1433
+math_ability_T0_z     0.87      0.07     0.74     1.01 1.01      927     1632
+GenderM              -0.10      0.13    -0.36     0.17 1.01      626     1422
+worry_z[1]            0.01      0.08    -0.15     0.17 1.00      723     1622
+worry_z[2]           -0.24      0.08    -0.39    -0.09 1.00      654     1440
+sc_state_z[1]         0.06      0.09    -0.12     0.23 1.01      532     1075
+sc_state_z[2]        -0.00      0.08    -0.17     0.16 1.01      500     1025
+
+Further Distributional Parameters:
+     Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+disc     1.00      0.00     1.00     1.00   NA       NA       NA
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+                prior     class              coef group resp dpar nlpar lb ub
+               (flat)         b                                              
+               (flat)         b           GenderM                            
+               (flat)         b math_ability_T0_z                            
+               (flat)         b        sc_state_z                            
+               (flat)         b           worry_z                            
+ student_t(3, 0, 2.5) Intercept                                              
+ student_t(3, 0, 2.5) Intercept                 1                            
+ student_t(3, 0, 2.5) Intercept                 2                            
+ student_t(3, 0, 2.5)        sd                                          0   
+ student_t(3, 0, 2.5)        sd                      id                  0   
+ student_t(3, 0, 2.5)        sd         Intercept    id                  0   
+       source
+      default
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+      default
+ (vectorized)
+ (vectorized)
+      default
+ (vectorized)
+ (vectorized)
+
+#### 03_M1 ####
+ Family: cumulative 
+  Links: mu = logit; disc = identity 
+Formula: choice_ord | weights(n) ~ worry_z + sc_state_z + buoyancy_z + math_ability_T0_z + Gender + (1 | id) 
+   Data: ag (Number of observations: 1341) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Multilevel Hyperparameters:
+~id (Number of levels: 547) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     1.34      0.05     1.25     1.45 1.00      828     1623
+
+Regression Coefficients:
+                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept[1]         -3.26      0.09    -3.44    -3.08 1.00      704     1286
+Intercept[2]         -0.80      0.09    -0.98    -0.63 1.00      662     1239
+worry_z              -0.21      0.08    -0.36    -0.06 1.00      701     1264
+sc_state_z            0.05      0.09    -0.12     0.22 1.00      538     1210
+buoyancy_z           -0.11      0.07    -0.24     0.02 1.00      706     1424
+math_ability_T0_z     0.89      0.07     0.75     1.03 1.00      691     1127
+GenderM              -0.11      0.14    -0.37     0.15 1.01      582     1132
+
+Further Distributional Parameters:
+     Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+disc     1.00      0.00     1.00     1.00   NA       NA       NA
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+                prior     class              coef group resp dpar nlpar lb ub
+               (flat)         b                                              
+               (flat)         b        buoyancy_z                            
+               (flat)         b           GenderM                            
+               (flat)         b math_ability_T0_z                            
+               (flat)         b        sc_state_z                            
+               (flat)         b           worry_z                            
+ student_t(3, 0, 2.5) Intercept                                              
+ student_t(3, 0, 2.5) Intercept                 1                            
+ student_t(3, 0, 2.5) Intercept                 2                            
+ student_t(3, 0, 2.5)        sd                                          0   
+ student_t(3, 0, 2.5)        sd                      id                  0   
+ student_t(3, 0, 2.5)        sd         Intercept    id                  0   
+       source
+      default
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+      default
+ (vectorized)
+ (vectorized)
+      default
+ (vectorized)
+ (vectorized)
+
+#### 03_a_scstate ####
+ Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: sc_state_z ~ sc_trait_z + math_ability_T0_z + Gender 
+   Data: ch (Number of observations: 547) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Regression Coefficients:
+                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept            -0.19      0.05    -0.29    -0.10 1.00     4706     3408
+sc_trait_z            0.24      0.04     0.17     0.32 1.00     4473     3203
+math_ability_T0_z     0.32      0.04     0.24     0.39 1.00     4367     3306
+GenderM               0.42      0.08     0.27     0.57 1.00     4506     3059
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.84      0.03     0.80     0.90 1.00     4814     3427
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+                  prior     class              coef group resp dpar nlpar lb ub
+                 (flat)         b                                              
+                 (flat)         b           GenderM                            
+                 (flat)         b math_ability_T0_z                            
+                 (flat)         b        sc_trait_z                            
+ student_t(3, 0.3, 2.5) Intercept                                              
+   student_t(3, 0, 2.5)     sigma                                          0   
+       source
+      default
+ (vectorized)
+ (vectorized)
+ (vectorized)
+      default
+      default
+
+#### 03_a_worry ####
+ Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: worry_z ~ math_anxiety_z + math_ability_T0_z + Gender 
+   Data: ch (Number of observations: 547) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Regression Coefficients:
+                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept             0.14      0.05     0.05     0.24 1.00     4908     3192
+math_anxiety_z        0.43      0.04     0.35     0.51 1.00     3516     3137
+math_ability_T0_z    -0.10      0.04    -0.18    -0.02 1.00     4112     3212
+GenderM              -0.32      0.08    -0.47    -0.16 1.00     4725     2897
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.85      0.03     0.80     0.90 1.00     4174     3117
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+                   prior     class              coef group resp dpar nlpar lb
+                  (flat)         b                                           
+                  (flat)         b           GenderM                         
+                  (flat)         b math_ability_T0_z                         
+                  (flat)         b    math_anxiety_z                         
+ student_t(3, -0.2, 2.5) Intercept                                           
+    student_t(3, 0, 2.5)     sigma                                          0
+ ub       source
+         default
+    (vectorized)
+    (vectorized)
+    (vectorized)
+         default
+         default
+
+#### 04_acat_cs ####
+ Family: acat 
+  Links: mu = logit; disc = identity 
+Formula: choice_ord | weights(n) ~ cs(worry_z) + cs(sc_state_z) + cs(math_anxiety_z) + cs(sc_trait_z) + cs(buoyancy_z) + cs(avoidance_z) + cs(math_ability_T0_z) + cs(Gender) + (1 | id) 
+   Data: ag (Number of observations: 1341) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Multilevel Hyperparameters:
+~id (Number of levels: 547) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     1.11      0.05     1.02     1.20 1.01      882     1486
+
+Regression Coefficients:
+                     Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+Intercept[1]            -2.19      0.09    -2.36    -2.02 1.00      667
+Intercept[2]            -0.88      0.08    -1.03    -0.74 1.00      533
+worry_z[1]               0.16      0.07     0.01     0.30 1.00      726
+worry_z[2]              -0.29      0.06    -0.42    -0.17 1.00      647
+sc_state_z[1]            0.04      0.08    -0.12     0.20 1.01      555
+sc_state_z[2]            0.00      0.07    -0.14     0.14 1.01      487
+math_anxiety_z[1]        0.01      0.08    -0.15     0.16 1.00      635
+math_anxiety_z[2]        0.05      0.07    -0.09     0.19 1.01      558
+sc_trait_z[1]            0.07      0.07    -0.07     0.21 1.01      633
+sc_trait_z[2]            0.03      0.06    -0.09     0.15 1.01      558
+buoyancy_z[1]           -0.05      0.07    -0.19     0.10 1.01      594
+buoyancy_z[2]           -0.17      0.06    -0.30    -0.05 1.01      472
+avoidance_z[1]          -0.21      0.07    -0.34    -0.08 1.01      541
+avoidance_z[2]          -0.13      0.06    -0.24    -0.01 1.01      415
+math_ability_T0_z[1]     0.56      0.08     0.41     0.71 1.00      700
+math_ability_T0_z[2]     0.81      0.06     0.68     0.93 1.00      581
+GenderM[1]               0.06      0.13    -0.20     0.32 1.00      527
+GenderM[2]              -0.09      0.12    -0.32     0.14 1.00      420
+                     Tail_ESS
+Intercept[1]             1610
+Intercept[2]             1186
+worry_z[1]               1118
+worry_z[2]               1214
+sc_state_z[1]            1170
+sc_state_z[2]            1032
+math_anxiety_z[1]        1318
+math_anxiety_z[2]        1117
+sc_trait_z[1]            1358
+sc_trait_z[2]            1144
+buoyancy_z[1]            1465
+buoyancy_z[2]            1032
+avoidance_z[1]           1558
+avoidance_z[2]           1190
+math_ability_T0_z[1]     1488
+math_ability_T0_z[2]     1225
+GenderM[1]               1334
+GenderM[2]               1001
+
+Further Distributional Parameters:
+     Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+disc     1.00      0.00     1.00     1.00   NA       NA       NA
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+                prior     class              coef group resp dpar nlpar lb ub
+               (flat)         b                                              
+               (flat)         b       avoidance_z                            
+               (flat)         b        buoyancy_z                            
+               (flat)         b           GenderM                            
+               (flat)         b math_ability_T0_z                            
+               (flat)         b    math_anxiety_z                            
+               (flat)         b        sc_state_z                            
+               (flat)         b        sc_trait_z                            
+               (flat)         b           worry_z                            
+ student_t(3, 0, 2.5) Intercept                                              
+ student_t(3, 0, 2.5) Intercept                 1                            
+ student_t(3, 0, 2.5) Intercept                 2                            
+ student_t(3, 0, 2.5)        sd                                          0   
+ student_t(3, 0, 2.5)        sd                      id                  0   
+ student_t(3, 0, 2.5)        sd         Intercept    id                  0   
+       source
+      default
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+      default
+ (vectorized)
+ (vectorized)
+      default
+ (vectorized)
+ (vectorized)
+
+#### 04_cat ####
+ Family: categorical 
+  Links: muhelp = logit; muself = logit 
+Formula: choice_c | weights(n) ~ worry_z + sc_state_z + math_anxiety_z + sc_trait_z + buoyancy_z + avoidance_z + math_ability_T0_z + Gender + (1 | id) 
+   Data: ag (Number of observations: 1341) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Multilevel Hyperparameters:
+~id (Number of levels: 547) 
+                     Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sd(muhelp_Intercept)     1.21      0.07     1.08     1.34 1.00     1895
+sd(muself_Intercept)     1.46      0.07     1.33     1.60 1.00     2059
+                     Tail_ESS
+sd(muhelp_Intercept)     2573
+sd(muself_Intercept)     3028
+
+Regression Coefficients:
+                         Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+muhelp_Intercept             1.34      0.09     1.16     1.53 1.00     2643
+muself_Intercept             2.45      0.10     2.25     2.65 1.00     2049
+muhelp_worry_z               0.26      0.09     0.08     0.42 1.00     2417
+muhelp_sc_state_z            0.04      0.09    -0.12     0.22 1.00     2207
+muhelp_math_anxiety_z       -0.05      0.08    -0.21     0.12 1.00     2481
+muhelp_sc_trait_z            0.01      0.08    -0.14     0.16 1.00     2428
+muhelp_buoyancy_z           -0.01      0.08    -0.17     0.14 1.00     2309
+muhelp_avoidance_z          -0.12      0.07    -0.26     0.03 1.00     2336
+muhelp_math_ability_T0_z     0.12      0.08    -0.03     0.28 1.00     2654
+muhelp_GenderM               0.09      0.14    -0.18     0.37 1.00     2511
+muself_worry_z              -0.10      0.09    -0.29     0.09 1.00     1717
+muself_sc_state_z            0.05      0.10    -0.15     0.25 1.00     2052
+muself_math_anxiety_z        0.02      0.09    -0.17     0.20 1.00     1963
+muself_sc_trait_z            0.04      0.09    -0.13     0.21 1.00     2167
+muself_buoyancy_z           -0.20      0.09    -0.38    -0.03 1.00     1745
+muself_avoidance_z          -0.27      0.08    -0.43    -0.11 1.00     1820
+muself_math_ability_T0_z     1.08      0.09     0.90     1.25 1.00     1737
+muself_GenderM               0.00      0.16    -0.30     0.33 1.00     2025
+                         Tail_ESS
+muhelp_Intercept             2861
+muself_Intercept             2596
+muhelp_worry_z               2477
+muhelp_sc_state_z            3037
+muhelp_math_anxiety_z        2912
+muhelp_sc_trait_z            3012
+muhelp_buoyancy_z            2861
+muhelp_avoidance_z           3191
+muhelp_math_ability_T0_z     3016
+muhelp_GenderM               2730
+muself_worry_z               2289
+muself_sc_state_z            2579
+muself_math_anxiety_z        2680
+muself_sc_trait_z            2725
+muself_buoyancy_z            2311
+muself_avoidance_z           2606
+muself_math_ability_T0_z     2022
+muself_GenderM               2673
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+                prior     class              coef group resp   dpar nlpar lb ub
+               (flat)         b                              muhelp            
+               (flat)         b       avoidance_z            muhelp            
+               (flat)         b        buoyancy_z            muhelp            
+               (flat)         b           GenderM            muhelp            
+               (flat)         b math_ability_T0_z            muhelp            
+               (flat)         b    math_anxiety_z            muhelp            
+               (flat)         b        sc_state_z            muhelp            
+               (flat)         b        sc_trait_z            muhelp            
+               (flat)         b           worry_z            muhelp            
+               (flat)         b                              muself            
+               (flat)         b       avoidance_z            muself            
+               (flat)         b        buoyancy_z            muself            
+               (flat)         b           GenderM            muself            
+               (flat)         b math_ability_T0_z            muself            
+               (flat)         b    math_anxiety_z            muself            
+               (flat)         b        sc_state_z            muself            
+               (flat)         b        sc_trait_z            muself            
+               (flat)         b           worry_z            muself            
+ student_t(3, 0, 2.5) Intercept                              muhelp            
+ student_t(3, 0, 2.5) Intercept                              muself            
+ student_t(3, 0, 2.5)        sd                              muhelp        0   
+ student_t(3, 0, 2.5)        sd                              muself        0   
+ student_t(3, 0, 2.5)        sd                      id      muhelp        0   
+ student_t(3, 0, 2.5)        sd         Intercept    id      muhelp        0   
+ student_t(3, 0, 2.5)        sd                      id      muself        0   
+ student_t(3, 0, 2.5)        sd         Intercept    id      muself        0   
+       source
+      default
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+      default
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+      default
+      default
+      default
+      default
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+
+#### 04_cat_class ####
+ Family: categorical 
+  Links: muhelp = logit; muself = logit 
+Formula: choice_c | weights(n) ~ worry_z + sc_state_z + math_anxiety_z + sc_trait_z + buoyancy_z + avoidance_z + math_ability_T0_z + Gender + (1 | id) + (1 | class) 
+   Data: ag (Number of observations: 1341) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Multilevel Hyperparameters:
+~class (Number of levels: 37) 
+                     Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sd(muhelp_Intercept)     0.37      0.10     0.17     0.58 1.00     1078
+sd(muself_Intercept)     0.49      0.13     0.22     0.75 1.01      417
+                     Tail_ESS
+sd(muhelp_Intercept)     1130
+sd(muself_Intercept)      273
+
+~id (Number of levels: 547) 
+                     Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sd(muhelp_Intercept)     1.16      0.06     1.04     1.29 1.00     1430
+sd(muself_Intercept)     1.39      0.07     1.26     1.53 1.01     1030
+                     Tail_ESS
+sd(muhelp_Intercept)     2538
+sd(muself_Intercept)     2544
+
+Regression Coefficients:
+                         Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+muhelp_Intercept             1.31      0.11     1.08     1.52 1.00     2571
+muself_Intercept             2.44      0.14     2.17     2.72 1.00     2161
+muhelp_worry_z               0.26      0.09     0.10     0.43 1.00     2461
+muhelp_sc_state_z            0.05      0.09    -0.12     0.22 1.00     2084
+muhelp_math_anxiety_z       -0.04      0.08    -0.20     0.12 1.01     2209
+muhelp_sc_trait_z            0.00      0.08    -0.15     0.16 1.00     2320
+muhelp_buoyancy_z           -0.03      0.08    -0.18     0.13 1.00     2269
+muhelp_avoidance_z          -0.14      0.07    -0.29     0.00 1.00     2182
+muhelp_math_ability_T0_z     0.12      0.08    -0.05     0.28 1.00     2589
+muhelp_GenderM               0.15      0.14    -0.12     0.42 1.00     2253
+muself_worry_z              -0.09      0.10    -0.27     0.10 1.00     1749
+muself_sc_state_z            0.06      0.10    -0.13     0.26 1.00     1662
+muself_math_anxiety_z        0.02      0.10    -0.17     0.21 1.00     1682
+muself_sc_trait_z            0.09      0.09    -0.09     0.26 1.00     1481
+muself_buoyancy_z           -0.19      0.09    -0.37    -0.02 1.00     1721
+muself_avoidance_z          -0.25      0.08    -0.41    -0.09 1.00     1743
+muself_math_ability_T0_z     1.02      0.09     0.83     1.20 1.00     1913
+muself_GenderM               0.01      0.16    -0.30     0.31 1.00     1962
+                         Tail_ESS
+muhelp_Intercept             2615
+muself_Intercept             2405
+muhelp_worry_z               2259
+muhelp_sc_state_z            2695
+muhelp_math_anxiety_z        2726
+muhelp_sc_trait_z            2459
+muhelp_buoyancy_z            2757
+muhelp_avoidance_z           2513
+muhelp_math_ability_T0_z     2767
+muhelp_GenderM               2833
+muself_worry_z               2524
+muself_sc_state_z            2291
+muself_math_anxiety_z        2452
+muself_sc_trait_z            2339
+muself_buoyancy_z            2256
+muself_avoidance_z           2408
+muself_math_ability_T0_z     2356
+muself_GenderM               2403
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+                prior     class              coef group resp   dpar nlpar lb ub
+               (flat)         b                              muhelp            
+               (flat)         b       avoidance_z            muhelp            
+               (flat)         b        buoyancy_z            muhelp            
+               (flat)         b           GenderM            muhelp            
+               (flat)         b math_ability_T0_z            muhelp            
+               (flat)         b    math_anxiety_z            muhelp            
+               (flat)         b        sc_state_z            muhelp            
+               (flat)         b        sc_trait_z            muhelp            
+               (flat)         b           worry_z            muhelp            
+               (flat)         b                              muself            
+               (flat)         b       avoidance_z            muself            
+               (flat)         b        buoyancy_z            muself            
+               (flat)         b           GenderM            muself            
+               (flat)         b math_ability_T0_z            muself            
+               (flat)         b    math_anxiety_z            muself            
+               (flat)         b        sc_state_z            muself            
+               (flat)         b        sc_trait_z            muself            
+               (flat)         b           worry_z            muself            
+ student_t(3, 0, 2.5) Intercept                              muhelp            
+ student_t(3, 0, 2.5) Intercept                              muself            
+ student_t(3, 0, 2.5)        sd                              muhelp        0   
+ student_t(3, 0, 2.5)        sd                              muself        0   
+ student_t(3, 0, 2.5)        sd                   class      muhelp        0   
+ student_t(3, 0, 2.5)        sd         Intercept class      muhelp        0   
+ student_t(3, 0, 2.5)        sd                   class      muself        0   
+ student_t(3, 0, 2.5)        sd         Intercept class      muself        0   
+ student_t(3, 0, 2.5)        sd                      id      muhelp        0   
+ student_t(3, 0, 2.5)        sd         Intercept    id      muhelp        0   
+ student_t(3, 0, 2.5)        sd                      id      muself        0   
+ student_t(3, 0, 2.5)        sd         Intercept    id      muself        0   
+       source
+      default
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+      default
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+      default
+      default
+      default
+      default
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+
+#### 04_cum ####
+ Family: cumulative 
+  Links: mu = logit; disc = identity 
+Formula: choice_ord | weights(n) ~ worry_z + sc_state_z + math_anxiety_z + sc_trait_z + buoyancy_z + avoidance_z + math_ability_T0_z + Gender + (1 | id) 
+   Data: ag (Number of observations: 1341) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Multilevel Hyperparameters:
+~id (Number of levels: 547) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     1.34      0.05     1.24     1.45 1.00      654     1190
+
+Regression Coefficients:
+                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept[1]         -3.24      0.09    -3.41    -3.06 1.00      568     1335
+Intercept[2]         -0.78      0.08    -0.95    -0.62 1.00      537     1142
+worry_z              -0.22      0.08    -0.37    -0.06 1.02      427      836
+sc_state_z            0.02      0.09    -0.15     0.18 1.01      472      956
+math_anxiety_z        0.05      0.08    -0.11     0.21 1.00      439      811
+sc_trait_z            0.06      0.08    -0.10     0.20 1.01      399      712
+buoyancy_z           -0.16      0.07    -0.30    -0.02 1.01      446     1001
+avoidance_z          -0.17      0.07    -0.31    -0.04 1.01      427      725
+math_ability_T0_z     0.87      0.08     0.72     1.02 1.01      518     1036
+GenderM              -0.05      0.13    -0.32     0.21 1.00      440     1099
+
+Further Distributional Parameters:
+     Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+disc     1.00      0.00     1.00     1.00   NA       NA       NA
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+                prior     class              coef group resp dpar nlpar lb ub
+               (flat)         b                                              
+               (flat)         b       avoidance_z                            
+               (flat)         b        buoyancy_z                            
+               (flat)         b           GenderM                            
+               (flat)         b math_ability_T0_z                            
+               (flat)         b    math_anxiety_z                            
+               (flat)         b        sc_state_z                            
+               (flat)         b        sc_trait_z                            
+               (flat)         b           worry_z                            
+ student_t(3, 0, 2.5) Intercept                                              
+ student_t(3, 0, 2.5) Intercept                 1                            
+ student_t(3, 0, 2.5) Intercept                 2                            
+ student_t(3, 0, 2.5)        sd                                          0   
+ student_t(3, 0, 2.5)        sd                      id                  0   
+ student_t(3, 0, 2.5)        sd         Intercept    id                  0   
+       source
+      default
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+ (vectorized)
+      default
+ (vectorized)
+ (vectorized)
+      default
+ (vectorized)
+ (vectorized)
+

@@ -1,0 +1,553 @@
+PAGE 1
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Dagli atteggiamenti ai comportamenti: il ruolo di emozioni 
+e motivazione nelle scelte matematiche nella scuola 
+primaria
+Riccardo Pagan1, Enrico Toffalini2, Alice Masi1 & Sara Caviola1
+1Dipartimento di Psicologia dello Sviluppo e della Socializzazione, Università di Padova
+2Dipartimento di Psicologia Generale, Università di Padova
+
+PAGE 2
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Riccardo Pagan, DPSS – Università degli Studi di Padova
+riccardo.pagan.3@phd.unipd.it
+Background & RQs
+Atteggiamenti ed emozioni →comportamenti
+Difficoltà nello studiare i comportamenti legati alla matematica
+• misure self-report (Cuder, et al., 2024)
+• analisi post-hoc di  le scelte a lungo termine del percorso scolastico o 
+professionale (Choe et al., 2019). 
+In contesti della scuola primaria, diventano necessari approcci alternativi per rilevare 
+i comportamenti degli studenti in modo obiettivo (Wang et al., 2025). 
+
+PAGE 3
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Riccardo Pagan, DPSS – Università degli Studi di Padova
+riccardo.pagan.3@phd.unipd.it
+Background & RQs
+RQ1: nuova misura comportamentale
+-
+evitamento – buoyancy: sono estremi di uno stesso continuum
+-
+riflettono comportamenti indipendenti
+RQ2: in che misura gli atteggiamenti verso la matematica a livello di tratto 
+(evitamento e buoyancy) e di stato (preoccupazioni e competenza percepita) 
+predicano tali scelte, controllando per abilità matematica e genere.
+Campione finale 
+N (F) = 547 (297)
+Classe 4 (F) = 378 (207)
+Classe 5 (F) = 169 (90)
+
+PAGE 4
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Metodo – T0
+Worry(3)
+Percezione 
+competenza 
+(3)
+16 
+operazioni
+16 
+operazioni
+Math anxiety
+[Math] 
+Buoyancy (4)
+Worry e PC – Mammarella et al., 2023
+Math anxiety – Caviola, et al., 2017
+Buoyancy - Martin & Marsh, 2008
+
+PAGE 5
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Metodo – T1
+16 operazioni 
+con scelta
+break
+[Math] Avoidance
+(10)
+[Math] Percezione 
+di competenza (10)
+16 operazioni 
+con scelta
+Avoidance – Conlon et al., 2022
+Perc. competenza – Harter, 2012
+
+PAGE 6
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Metodo – T1
+16 operazioni 
+con scelta
+break
+[Math] Avoidance
+(10)
+[Math] Percezione 
+di competenza (10)
+16 operazioni 
+con scelta
+Avoidance – Conlon et al., 2022
+Perc. competenza – Harter, 2012
+
+PAGE 7
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Riccardo Pagan, DPSS – Università degli Studi di Padova
+riccardo.pagan.3@phd.unipd.it
+Pipeline di analisi
+Approccio bayesiano (brms)
+Backend: cmdstanr
+Random intercept: soggetto
+1
+Confronto modelli
+Categoriale (multinomiale) vs. ordinale (cumulative logit) —
+confronto Leave-One-Out (LOO).
+2
+3
+Modello frequentista
+(regressione lineare) 
+Regressione lineare con predittori di stato e tratto; controllo per 
+abilità matematica e genere.
+Modello bayesiano
+(regressione logistica
+multinomiale)
+Regressione logistica multinomiale con predittori di stato e tratto; 
+controllo per abilità matematica e genere.
+Analisi di robustezza
+
+PAGE 8
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Riccardo Pagan, DPSS – Università degli Studi di Padova
+riccardo.pagan.3@phd.unipd.it
+Risultati: Natura della variabile scelta (RQ1)
+Confronto LOO
+Categoriale vs. ordinale
+Categoriale (multinomiale)
+MODELLO PREFERITO
+Ordinale (cumulative logit)
+Δelpd  = -721.1
+se_diff  = 35.9
+Il modello categoriale è preferito in modo netto (≈ 20 SE di distanza) — nessuna evidenza di un ordinamento 
+naturale skip < help < self.
+Il modello categoriale guida la parametrizzazione di tutte le analisi successive (RQ2).
+
+PAGE 9
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Riccardo Pagan, DPSS – Università degli Studi di Padova
+riccardo.pagan.3@phd.unipd.it
+RQ1 — Approfondimento: perché il modello categoriale?
+Criterio di decisione
+|Δelpd| > 2 × se_diff
+Osservato: ≈ 20 × se_diff
+Cos'è il confronto LOO
+Il confronto Leave-One-Out (PSIS-LOO; 
+Vehtari et al., 2017) stima quanto bene 
+ciascun modello prevede dati nuovi, senza 
+doverlo ristimare N volte.
+Criterio convenzionale: una differenza di 
+elpd superiore a circa 2 volte il proprio
+errore standard (se_diff) è considerata una
+preferenza decisiva.
+Nel nostro caso: Δelpd = -721.1, se_diff = 35.9 → distanza ≈ 20 SE, un ordine di grandezza oltre la soglia.
+Perché i dati non sostengono un'unica
+scala?
+Il modello ordinale assume un effetto
+proporzionale delle variabili su entrambe le 
+soglie della scelta (saltare vs. 
+aiuto+autonoma e saltare+aiuto vs. 
+autonoma). I risultati di RQ2 mostrano
+invece pattern chiaramente non 
+proporzionali che verranno approfonditi 
+nella discussione della RQ2.
+4
+
+PAGE 10
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Riccardo Pagan, DPSS – Università degli Studi di Padova
+riccardo.pagan.3@phd.unipd.it
+Risultati: Modello bayesiano
+Regressione multinomiale bayesiana
+Covariate: abilità matematica, genere
+Effetto random: soggetto
+Risposta autonoma vs. Saltare
+Predittore
+β
+IC 95%
+Post.Prob
+Ansia per la matematica
+(stato)
+-0.05
+[-0.14, 0.04]
+.85
+Percezione di competenza
+0.02
+[-0.06, 0.11]
+.71
+Buoyancy*
+-0.04
+[-0.08, -0.00]
+.99
+Evitamento
+-0.05
+[-0.08, -0.02]
+1.00
+Ansia per la matematica 
+(tratto)
+0.00
+[-0.02, 0.03]
+.41
+Percezione di competenza 
+(tratto)
+0.01
+[-0.02, 0.04]
+.69
+Abilità matematica (T0)
+0.14
+[0.11, 0.16]
+1.00
+Genere (M)
+0.00
+[-0.32, 0.33]
+.50
+*  direzione opposta all'ipotesi pre-registrata.  
+
+PAGE 11
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Riccardo Pagan, DPSS – Università degli Studi di Padova
+riccardo.pagan.3@phd.unipd.it
+Risultati: Modello bayesiano
+Regressione multinomiale bayesiana
+Covariate: abilità matematica, genere
+Effetto random: soggetto
+Risposta autonoma vs. Saltare
+Predittore
+β
+IC 95%
+Post.Prob
+Ansia per la matematica
+(stato)
+-0.05
+[-0.14, 0.04]
+.85
+Percezione di competenza
+0.02
+[-0.06, 0.11]
+.71
+Buoyancy*
+-0.04
+[-0.08, -0.01]
+.99
+Evitamento
+-0.05
+[-0.08, -0.02]
+1.00
+Ansia per la matematica 
+(tratto)
+0.00
+[-0.02, 0.03]
+.41
+Percezione di competenza 
+(tratto)
+0.01
+[-0.02, 0.04]
+.69
+Abilità matematica (T0)
+0.14
+[0.11, 0.16]
+1.00
+Genere (M)
+0.00
+[-0.32, 0.33]
+.50
+*  direzione opposta all'ipotesi pre-registrata.  
+
+PAGE 12
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Riccardo Pagan, DPSS – Università degli Studi di Padova
+riccardo.pagan.3@phd.unipd.it
+Risultati: Modello bayesiano
+Regressione multinomiale bayesiana
+Covariate: abilità matematica, genere
+Effetto random: soggetto
+Richiesta di aiuto vs. Saltare
+Predittore
+β
+IC 95%
+Post.Prob
+Ansia per la matematica
+(stato) 
+0.13
+[0.05, 0.21]
+1.00
+Percezione di competenza
+0.02
+[-0.06, 0.09]
+.70
+Buoyancy
+0.00
+[-0.03, 0.03]
+.46
+Evitamento
+-0.02
+[-0.05, 0.00]
+.95
+Ansia per la matematica 
+(tratto)
+-0.01
+[-0.03, 0.01]
+.73
+Percezione di competenza 
+(tratto)
+0.00
+[-0.03, 0.03]
+.53
+Abilità matematica (T0)
+0.02
+[-0.01, 0.04]
+.93
+Genere (M)
+0.09
+[-0.18, 0.38]
+.74
+
+PAGE 13
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Riccardo Pagan, DPSS – Università degli Studi di Padova
+riccardo.pagan.3@phd.unipd.it
+Analisi di robustezza
+Regressione lineare (lm)
+Punteggio di scelta di autonomia per soggetto
+skip = 0, help = 1, self = 2
+VD: Punteggio aggregato delle scelte sui 32 item (z-standardizzato) come outcome continuo
+Predittore
+β standard.
+IC 95%
+p
+Abilità matematica (T0)
+0.51
+[0.43, 0.59]
+< .001
+Ansia per la matematica (stato)
+-0.13
+[-0.22, -0.04]
+.005
+Buoyancy*
+-0.11
+[-0.20, -0.03]
+.008
+Evitamento
+-0.10
+[-0.18, -0.02]
+.013
+Percezione di competenza (tratto)
+0.03
+[-0.05, 0.11]
+.437
+Percezione di competenza (stato)
+0.04
+[-0.06, 0.13]
+.470
+Ansia per la matematica (tratto)
+0.02
+[-0.07, 0.11]
+.676
+Genere (M)
+-0.05
+[-0.20, 0.10]
+.506
+*  effetto credibile ma di segno inatteso. R² = .331 (R² adj. = .321), F(8, 538) = 33.32, p < .001.
+L'abilità matematica è il predittore più forte; evitamento, preoccupazione e (risultato inatteso) buoyancy riducono il punteggio di scelta di autonomia, confermando il quadro 
+emerso da RQ2.
+
+PAGE 14
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Riccardo Pagan, DPSS – Università degli Studi di Padova
+riccardo.pagan.3@phd.unipd.it
+Discussione - conclusioni
+Le scelte proposte si comportano come categoriali – evitamento e resilenza non 
+estremi di uno stesso continuum.
+L'evitamento di tratto è il predittore più consistente della scelta:  riduce sia la richiesta 
+di aiuto sia la risposta autonoma rispetto alla scelta di saltare rispetto alla RQ2; il 
+risultato delle analisi di robustezza conferma questo trend.
+L’ansia per la matematica di stato (preoccupazione) aumenta invece specificamente la 
+richiesta di aiuto.
+
+PAGE 15
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Riccardo Pagan, DPSS – Università degli Studi di Padova
+riccardo.pagan.3@phd.unipd.it
+Discussione - conclusioni
+Risultato inatteso - buoyancy:  in entrambe le analisi, una maggiore buoyancy  di 
+tratto autopercepita è associata a una probabilità più bassa (non più alta) di 
+rispondere autonomamente. La percezione di competenza di stato, invece, non 
+risulta un predittore credibile della scelta, a differenza di quanto ipotizzato.
+Le misure comportamentali non sembrano collocarsi lungo un’unica dimensione, ma 
+distinguono profili funzionalmente diversi…
+-
+Aiuto come evitamento «mascherato»
+-
+Testare formalmente mediazione stato→tratto, adattando il disegno sperimentale
+-
+Esplorare tramite disegno longitudinale
+
+PAGE 16
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Grazie!
+riccardo.pagan.3@phd.unipd.it
+
+PAGE 17
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Riccardo Pagan, DPSS – Università degli Studi di Padova
+riccardo.pagan.3@phd.unipd.it
+Descrittive: composizione del campione per e genere
+Valori riportati come Media (DS). F = Femmine, M = Maschi.
+Variabile
+Classe 4  (N = 378)
+Classe 5  (N = 169)
+F  (N = 207)
+M  (N = 171)
+F  (N = 90)
+M  (N = 79)
+Ansia per la matematica (tratto)
+24.01 (7.27)
+20.71 (7.95)
+23.12 (6.76)
+20.06 (7.23)
+Ansia per la matematica (stato)
+6.10 (2.03)
+4.94 (1.78)
+5.83 (2.35)
+4.77 (1.80)
+Percezione di competenza (tratto)
+26.26 (5.52)
+27.85 (5.78)
+25.99 (6.18)
+28.56 (6.74)
+Percezione di competenza (stato)
+7.65 (2.21)
+9.11 (2.01)
+7.69 (2.23)
+9.34 (2.45)
+Buoyancy
+18.67 (4.63)
+20.05 (5.20)
+18.41 (4.67)
+20.10 (4.87)
+Evitamento matematico
+17.31 (4.88)
+17.55 (5.53)
+18.17 (4.72)
+18.48 (6.10)
+Abilità matematica (T0)
+8.62 (6.43)
+12.55 (7.69)
+12.97 (7.91)
+16.95 (8.40)
+
+PAGE 18
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Riccardo Pagan, DPSS – Università degli Studi di Padova
+riccardo.pagan.3@phd.unipd.it
+Statistiche descrittive dei predittori inclusi nel modello finale (scala grezza)
+Variabile
+M (DS)
+Min
+Max
+Skewness
+Kurtosis
+Ansia per la matematica 
+(stato)
+5.50 (2.06)
+3
+12
+0.90
+0.24
+Percezione di competenza 
+(stato)
+8.36 (2.31)
+3
+12
+-0.42
+-0.37
+Ansia per la matematica 
+(tratto)
+22.30 (7.56)
+9
+44
+0.16
+-0.63
+Percezione di competenza 
+(tratto)
+27.00 (5.96)
+10
+40
+0.21
+-0.52
+Buoyancy
+19.30 (4.89)
+4
+28
+-0.34
+-0.07
+Evitamento
+17.70 (5.25)
+10
+40
+1.12
+1.72
+Abilità matematica (T0)
+11.80 (7.89)
+0
+32
+0.45
+-0.76
+Risultati - descrittive
+
+PAGE 19
+XXXIV Congresso
+18/19 sett 2026
+|Cremona
+Riccardo Pagan, DPSS – Università degli Studi di Padova
+riccardo.pagan.3@phd.unipd.it
+In sintesi
+Buona validità convergente tratto–stato
+Ansia matematica tratto
+stato (r=.50) e 
+competenza percepita tratto
+stato (r=.36): 
+correlati ma non ridondanti.
+Buoyancy dimostra relazioni attese con le altre 
+variabili di interesse
+Correlazioni tra le variabili di interesse

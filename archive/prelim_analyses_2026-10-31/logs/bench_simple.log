@@ -1,0 +1,43 @@
+Compiling Stan program...
+Start sampling
+the number of chains is less than 1; sampling not done
+Start sampling
+
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 1).
+Chain 1: 
+Chain 1: Gradient evaluation took 0.015189 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 151.89 seconds.
+Chain 1: Adjust your expectations accordingly!
+Chain 1: 
+Chain 1: 
+Chain 1: WARNING: There aren't enough warmup iterations to fit the
+Chain 1:          three stages of adaptation as currently configured.
+Chain 1:          Reducing each adaptation stage to 15%/75%/10% of
+Chain 1:          the given number of warmup iterations:
+Chain 1:            init_buffer = 15
+Chain 1:            adapt_window = 75
+Chain 1:            term_buffer = 10
+Chain 1: 
+Chain 1: Iteration:   1 / 200 [  0%]  (Warmup)
+Chain 1: Iteration:  50 / 200 [ 25%]  (Warmup)
+Chain 1: Iteration: 100 / 200 [ 50%]  (Warmup)
+Chain 1: Iteration: 101 / 200 [ 50%]  (Sampling)
+Chain 1: Iteration: 150 / 200 [ 75%]  (Sampling)
+Chain 1: Iteration: 200 / 200 [100%]  (Sampling)
+Chain 1: 
+Chain 1:  Elapsed Time: 533.073 seconds (Warm-up)
+Chain 1:                297.935 seconds (Sampling)
+Chain 1:                831.008 seconds (Total)
+Chain 1: 
+Warning messages:
+1: The largest R-hat is 1.29, indicating chains have not mixed.
+Running the chains for more iterations may help. See
+https://mc-stan.org/misc/warnings.html#r-hat 
+2: Bulk Effective Samples Size (ESS) is too low, indicating posterior means and medians may be unreliable.
+Running the chains for more iterations may help. See
+https://mc-stan.org/misc/warnings.html#bulk-ess 
+3: Tail Effective Samples Size (ESS) is too low, indicating posterior variances and tail quantiles may be unreliable.
+Running the chains for more iterations may help. See
+https://mc-stan.org/misc/warnings.html#tail-ess 
+
+BENCH simple compile(s): 70  sampling 200 it (s): 833 

@@ -2,5 +2,5 @@
 .Rhistory
 .RData
 .Ruserdata
-
-Script/*.RData
+Preregistration/Script/*.RData
+analysis/fits/

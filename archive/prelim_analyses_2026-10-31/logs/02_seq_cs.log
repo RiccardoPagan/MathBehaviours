@@ -1,0 +1,142 @@
+Compiling Stan program...
+Start sampling
+starting worker pid=17360 on localhost:11005 at 12:02:14.893
+starting worker pid=30328 on localhost:11005 at 12:02:15.317
+
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 1).
+Chain 1: 
+Chain 1: Gradient evaluation took 0.004992 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 49.92 seconds.
+Chain 1: Adjust your expectations accordingly!
+Chain 1: 
+Chain 1: 
+Chain 1: Iteration:   1 / 1000 [  0%]  (Warmup)
+
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 2).
+Chain 2: 
+Chain 2: Gradient evaluation took 0.004886 seconds
+Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 48.86 seconds.
+Chain 2: Adjust your expectations accordingly!
+Chain 2: 
+Chain 2: 
+Chain 2: Iteration:   1 / 1000 [  0%]  (Warmup)
+Chain 2: Iteration:  50 / 1000 [  5%]  (Warmup)
+Chain 1: Iteration:  50 / 1000 [  5%]  (Warmup)
+Chain 2: Iteration: 100 / 1000 [ 10%]  (Warmup)
+Chain 1: Iteration: 100 / 1000 [ 10%]  (Warmup)
+Chain 2: Iteration: 150 / 1000 [ 15%]  (Warmup)
+Chain 2: Iteration: 200 / 1000 [ 20%]  (Warmup)
+Chain 1: Iteration: 150 / 1000 [ 15%]  (Warmup)
+Chain 2: Iteration: 250 / 1000 [ 25%]  (Warmup)
+Chain 1: Iteration: 200 / 1000 [ 20%]  (Warmup)
+Chain 2: Iteration: 300 / 1000 [ 30%]  (Warmup)
+Chain 1: Iteration: 250 / 1000 [ 25%]  (Warmup)
+Chain 2: Iteration: 350 / 1000 [ 35%]  (Warmup)
+Chain 1: Iteration: 300 / 1000 [ 30%]  (Warmup)
+Chain 2: Iteration: 400 / 1000 [ 40%]  (Warmup)
+Chain 1: Iteration: 350 / 1000 [ 35%]  (Warmup)
+Chain 2: Iteration: 450 / 1000 [ 45%]  (Warmup)
+Chain 1: Iteration: 400 / 1000 [ 40%]  (Warmup)
+Chain 1: Iteration: 450 / 1000 [ 45%]  (Warmup)
+Chain 2: Iteration: 500 / 1000 [ 50%]  (Warmup)
+Chain 2: Iteration: 501 / 1000 [ 50%]  (Sampling)
+Chain 2: Iteration: 550 / 1000 [ 55%]  (Sampling)
+Chain 1: Iteration: 500 / 1000 [ 50%]  (Warmup)
+Chain 1: Iteration: 501 / 1000 [ 50%]  (Sampling)
+Chain 2: Iteration: 600 / 1000 [ 60%]  (Sampling)
+Chain 1: Iteration: 550 / 1000 [ 55%]  (Sampling)
+Chain 2: Iteration: 650 / 1000 [ 65%]  (Sampling)
+Chain 1: Iteration: 600 / 1000 [ 60%]  (Sampling)
+Chain 2: Iteration: 700 / 1000 [ 70%]  (Sampling)
+Chain 1: Iteration: 650 / 1000 [ 65%]  (Sampling)
+Chain 2: Iteration: 750 / 1000 [ 75%]  (Sampling)
+Chain 1: Iteration: 700 / 1000 [ 70%]  (Sampling)
+Chain 2: Iteration: 800 / 1000 [ 80%]  (Sampling)
+Chain 1: Iteration: 750 / 1000 [ 75%]  (Sampling)
+Chain 2: Iteration: 850 / 1000 [ 85%]  (Sampling)
+Chain 1: Iteration: 800 / 1000 [ 80%]  (Sampling)
+Chain 2: Iteration: 900 / 1000 [ 90%]  (Sampling)
+Chain 1: Iteration: 850 / 1000 [ 85%]  (Sampling)
+Chain 2: Iteration: 950 / 1000 [ 95%]  (Sampling)
+Chain 1: Iteration: 900 / 1000 [ 90%]  (Sampling)
+Chain 2: Iteration: 1000 / 1000 [100%]  (Sampling)
+Chain 2: 
+Chain 2:  Elapsed Time: 170.96 seconds (Warm-up)
+Chain 2:                68.13 seconds (Sampling)
+Chain 2:                239.09 seconds (Total)
+Chain 2: 
+Chain 1: Iteration: 950 / 1000 [ 95%]  (Sampling)
+Chain 1: Iteration: 1000 / 1000 [100%]  (Sampling)
+Chain 1: 
+Chain 1:  Elapsed Time: 180.339 seconds (Warm-up)
+Chain 1:                67.728 seconds (Sampling)
+Chain 1:                248.067 seconds (Total)
+Chain 1: 
+Warning messages:
+1: Bulk Effective Samples Size (ESS) is too low, indicating posterior means and medians may be unreliable.
+Running the chains for more iterations may help. See
+https://mc-stan.org/misc/warnings.html#bulk-ess 
+2: Tail Effective Samples Size (ESS) is too low, indicating posterior variances and tail quantiles may be unreliable.
+Running the chains for more iterations may help. See
+https://mc-stan.org/misc/warnings.html#tail-ess 
+
+DONE seq_cs minutes: 7.8 
+ Family: sratio 
+  Links: mu = logit; disc = identity 
+Formula: choice_seq | weights(n) ~ cs(worry_z) + cs(sc_state_z) + cs(math_anxiety_z) + cs(sc_trait_z) + cs(buoyancy_z) + cs(avoidance_z) + cs(math_ability_T0_z) + cs(Gender) + (1 | id) 
+   Data: s$dat (Number of observations: 1338) 
+  Draws: 2 chains, each with iter = 1000; warmup = 500; thin = 1;
+         total post-warmup draws = 1000
+
+Multilevel Hyperparameters:
+~id (Number of levels: 546) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     1.23      0.04     1.14     1.32 1.00      215      338
+
+Regression Coefficients:
+                     Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+Intercept[1]             0.71      0.08     0.57     0.88 1.02      116
+Intercept[2]             2.30      0.10     2.13     2.50 1.01      140
+worry_z[1]               0.26      0.08     0.11     0.42 1.00      111
+worry_z[2]              -0.16      0.09    -0.33     0.01 1.00      119
+sc_state_z[1]           -0.01      0.09    -0.18     0.15 1.01      111
+sc_state_z[2]           -0.04      0.09    -0.24     0.14 1.00      119
+math_anxiety_z[1]       -0.04      0.07    -0.18     0.11 1.02      134
+math_anxiety_z[2]        0.01      0.08    -0.15     0.16 1.02      160
+sc_trait_z[1]           -0.03      0.07    -0.15     0.10 1.03      148
+sc_trait_z[2]           -0.07      0.07    -0.21     0.08 1.02      162
+buoyancy_z[1]            0.17      0.07     0.03     0.31 1.01      120
+buoyancy_z[2]            0.03      0.08    -0.11     0.19 1.01      129
+avoidance_z[1]           0.15      0.06     0.04     0.28 1.01      150
+avoidance_z[2]           0.21      0.07     0.08     0.36 1.01      161
+math_ability_T0_z[1]    -0.86      0.07    -0.99    -0.73 1.04      123
+math_ability_T0_z[2]    -0.60      0.08    -0.75    -0.45 1.03      148
+GenderM[1]               0.05      0.13    -0.18     0.35 1.00      114
+GenderM[2]              -0.08      0.15    -0.33     0.23 1.00      128
+                     Tail_ESS
+Intercept[1]              150
+Intercept[2]              269
+worry_z[1]                207
+worry_z[2]                229
+sc_state_z[1]             135
+sc_state_z[2]             207
+math_anxiety_z[1]         194
+math_anxiety_z[2]         218
+sc_trait_z[1]             252
+sc_trait_z[2]             298
+buoyancy_z[1]             149
+buoyancy_z[2]             214
+avoidance_z[1]            251
+avoidance_z[2]            361
+math_ability_T0_z[1]      249
+math_ability_T0_z[2]      292
+GenderM[1]                165
+GenderM[2]                167
+
+Further Distributional Parameters:
+     Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+disc     1.00      0.00     1.00     1.00   NA       NA       NA
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).

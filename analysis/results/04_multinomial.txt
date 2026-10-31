@@ -1,0 +1,114 @@
+cat
+  max Rhat: 1  min bulk ESS: 1717  divergences: 0 
+cum
+  max Rhat: 1.02  min bulk ESS: 399  divergences: 0 
+acat_cs
+  max Rhat: 1.01  min bulk ESS: 415  divergences: 0 
+cat_class
+  max Rhat: 1  min bulk ESS: 1481  divergences: 0 
+
+#### LOO (trial level) ####
+  Pareto k > 0.7 (trials): 0 
+  Pareto k > 0.7 (trials): 0 
+  Pareto k > 0.7 (trials): 0 
+   model   elpd   se elpd_diff_vs_cat se_diff diff_in_se
+     cat -11487 90.3                0     0.0        NaN
+     cum -12206 93.1             -719    35.9      -20.0
+ acat_cs -12334 92.4             -847    39.2      -21.6
+
+#### ADJACENT-CATEGORY MODEL, category-specific effects ([1] = help vs skip, [2] = self vs help) ####
+                     Estimate Est.Error   Q2.5  Q97.5
+Intercept[1]           -2.189     0.089 -2.361 -2.016
+Intercept[2]           -0.885     0.076 -1.026 -0.736
+worry_z[1]              0.162     0.074  0.012  0.304
+worry_z[2]             -0.292     0.064 -0.419 -0.172
+sc_state_z[1]           0.041     0.082 -0.120  0.199
+sc_state_z[2]           0.002     0.072 -0.143  0.145
+math_anxiety_z[1]       0.008     0.079 -0.151  0.164
+math_anxiety_z[2]       0.046     0.070 -0.090  0.185
+sc_trait_z[1]           0.073     0.071 -0.066  0.212
+sc_trait_z[2]           0.032     0.063 -0.090  0.153
+buoyancy_z[1]          -0.048     0.073 -0.186  0.095
+buoyancy_z[2]          -0.175     0.064 -0.299 -0.050
+avoidance_z[1]         -0.211     0.065 -0.337 -0.081
+avoidance_z[2]         -0.125     0.059 -0.239 -0.012
+math_ability_T0_z[1]    0.562     0.077  0.407  0.713
+math_ability_T0_z[2]    0.806     0.064  0.675  0.931
+GenderM[1]              0.060     0.133 -0.202  0.316
+GenderM[2]             -0.085     0.118 -0.319  0.140
+
+#### MULTINOMIAL MODEL (reference = skip; pp_pos = posterior probability of a positive effect) ####
+ model     contrast              term      est      lo      hi  pp_pos
+   cat help_vs_skip           worry_z  0.25607  0.0846  0.4173 0.99750
+   cat self_vs_skip           worry_z -0.10311 -0.2916  0.0867 0.13525
+   cat self_vs_help           worry_z -0.35918 -0.5728 -0.1443 0.00125
+   cat help_vs_skip        sc_state_z  0.04479 -0.1242  0.2154 0.69025
+   cat self_vs_skip        sc_state_z  0.05331 -0.1469  0.2485 0.69550
+   cat self_vs_help        sc_state_z  0.00851 -0.2222  0.2422 0.53025
+   cat help_vs_skip    math_anxiety_z -0.04972 -0.2109  0.1170 0.27725
+   cat self_vs_skip    math_anxiety_z  0.01840 -0.1673  0.1960 0.58475
+   cat self_vs_help    math_anxiety_z  0.06812 -0.1529  0.2833 0.72750
+   cat help_vs_skip        sc_trait_z  0.00576 -0.1414  0.1617 0.53275
+   cat self_vs_skip        sc_trait_z  0.04064 -0.1267  0.2086 0.69000
+   cat self_vs_help        sc_trait_z  0.03488 -0.1600  0.2330 0.64250
+   cat help_vs_skip        buoyancy_z -0.00907 -0.1704  0.1417 0.45150
+   cat self_vs_skip        buoyancy_z -0.20331 -0.3833 -0.0277 0.01125
+   cat self_vs_help        buoyancy_z -0.19424 -0.3957  0.0202 0.03525
+   cat help_vs_skip       avoidance_z -0.11786 -0.2594  0.0258 0.05550
+   cat self_vs_skip       avoidance_z -0.26714 -0.4292 -0.1091 0.00100
+   cat self_vs_help       avoidance_z -0.14927 -0.3384  0.0475 0.06000
+   cat help_vs_skip math_ability_T0_z  0.12354 -0.0346  0.2837 0.94250
+   cat self_vs_skip math_ability_T0_z  1.07593  0.8997  1.2537 1.00000
+   cat self_vs_help math_ability_T0_z  0.95240  0.7520  1.1464 1.00000
+   cat help_vs_skip           GenderM  0.08628 -0.1833  0.3738 0.71750
+   cat self_vs_skip           GenderM  0.00441 -0.3001  0.3325 0.50225
+   cat self_vs_help           GenderM -0.08187 -0.4482  0.2795 0.33375
+$id
+$id$sd
+                 Estimate Est.Error Q2.5 Q97.5
+muhelp_Intercept     1.21    0.0654 1.08  1.34
+muself_Intercept     1.46    0.0678 1.33  1.60
+
+
+
+#### WITH CLASS RANDOM INTERCEPT ####
+     model     contrast              term      est      lo        hi  pp_pos change_vs_cat
+ cat_class help_vs_skip           worry_z  0.26202  0.0995  0.426219 0.99775       0.00595
+ cat_class self_vs_skip           worry_z -0.09066 -0.2750  0.098920 0.16625       0.01245
+ cat_class self_vs_help           worry_z -0.35268 -0.5695 -0.140336 0.00050       0.00650
+ cat_class help_vs_skip        sc_state_z  0.04764 -0.1243  0.220211 0.70225       0.00284
+ cat_class self_vs_skip        sc_state_z  0.05910 -0.1272  0.259543 0.71200       0.00579
+ cat_class self_vs_help        sc_state_z  0.01146 -0.2216  0.242155 0.53950       0.00295
+ cat_class help_vs_skip    math_anxiety_z -0.03661 -0.2006  0.121075 0.33525       0.01311
+ cat_class self_vs_skip    math_anxiety_z  0.02247 -0.1653  0.213541 0.58875       0.00407
+ cat_class self_vs_help    math_anxiety_z  0.05908 -0.1549  0.272635 0.70625      -0.00905
+ cat_class help_vs_skip        sc_trait_z  0.00415 -0.1495  0.160330 0.52050      -0.00161
+ cat_class self_vs_skip        sc_trait_z  0.08642 -0.0889  0.264120 0.82950       0.04578
+ cat_class self_vs_help        sc_trait_z  0.08227 -0.1198  0.285135 0.77800       0.04739
+ cat_class help_vs_skip        buoyancy_z -0.02604 -0.1777  0.126714 0.37450      -0.01697
+ cat_class self_vs_skip        buoyancy_z -0.19246 -0.3700 -0.016749 0.01425       0.01085
+ cat_class self_vs_help        buoyancy_z -0.16642 -0.3705  0.042899 0.05550       0.02783
+ cat_class help_vs_skip       avoidance_z -0.14317 -0.2864  0.000952 0.02575      -0.02531
+ cat_class self_vs_skip       avoidance_z -0.25123 -0.4059 -0.087686 0.00125       0.01590
+ cat_class self_vs_help       avoidance_z -0.10806 -0.2966  0.080558 0.13175       0.04121
+ cat_class help_vs_skip math_ability_T0_z  0.11510 -0.0480  0.275998 0.91775      -0.00843
+ cat_class self_vs_skip math_ability_T0_z  1.02227  0.8339  1.204803 1.00000      -0.05366
+ cat_class self_vs_help math_ability_T0_z  0.90717  0.7024  1.116455 1.00000      -0.04522
+ cat_class help_vs_skip           GenderM  0.14958 -0.1201  0.422087 0.85850       0.06330
+ cat_class self_vs_skip           GenderM  0.00622 -0.3024  0.312768 0.51600       0.00181
+ cat_class self_vs_help           GenderM -0.14336 -0.4960  0.202446 0.21975      -0.06150
+Largest change: 0.063 
+$class
+$class$sd
+                 Estimate Est.Error  Q2.5 Q97.5
+muhelp_Intercept    0.370     0.100 0.174 0.575
+muself_Intercept    0.489     0.133 0.224 0.748
+
+
+$id
+$id$sd
+                 Estimate Est.Error Q2.5 Q97.5
+muhelp_Intercept     1.16    0.0633 1.04  1.29
+muself_Intercept     1.39    0.0684 1.26  1.53
+
+

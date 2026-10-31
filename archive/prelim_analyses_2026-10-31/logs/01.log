@@ -1,0 +1,257 @@
+Loading required package: Matrix
+This is lavaan 0.6-19
+lavaan is FREE software! Please report any bugs.
+ 
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+
+Attaching package: 'psych'
+
+The following objects are masked from 'package:semTools':
+
+    reliability, skew
+
+The following object is masked from 'package:lavaan':
+
+    cor2cov
+
+Warning message:
+package 'psych' was built under R version 4.5.2 
+
+#### SAMPLE ####
+Children: 546  classes: 37  schools: 18 
+   
+      4   5
+  F 207  90
+  M 170  79
+
+192 288 320 352 384 416 448 480 512 544 576 608 640 736 
+  1   2   2   3   2   5   2   4   4   2   3   3   3   1 
+
+#### CHOICES ####
+
+help self skip <NA> 
+30.3 59.3  8.3  2.1 
+      
+          1    2
+  help 31.8 30.0
+  self 60.6 60.6
+  skip  7.6  9.4
+All self: 57  all help: 3  all skip: 0  never skip: 215  never help: 78 
+     p_skip           p_help           p_self     
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.000  
+ 1st Qu.:0.0000   1st Qu.:0.0938   1st Qu.:0.400  
+ Median :0.0333   Median :0.2812   Median :0.625  
+ Mean   :0.0851   Mean   :0.3087   Mean   :0.606  
+ 3rd Qu.:0.1333   3rd Qu.:0.4688   3rd Qu.:0.870  
+ Max.   :0.7333   Max.   :1.0000   Max.   :1.000  
+Missing choices per child:
+
+  0   1   2   3   4   5   7   8   9  10 
+363 101  42  20   5   9   1   2   2   1 
+Accuracy of missing-choice rows:
+
+   0 <NA> 
+ 361    0 
+
+#### ACCURACY BY CHOICE ####
+ help  self  skip 
+0.275 0.268 0.000 
+Accuracy ~ help (vs self) + ability:
+                  Estimate Std. Error z value Pr(>|z|)
+(Intercept)         -1.516     0.0780  -19.44 3.26e-84
+help                 0.468     0.0539    8.68 4.00e-18
+math_ability_T0_z    0.662     0.0552   12.00 3.35e-33
+
+#### PREDICTOR DESCRIPTIVES (raw scales) ####
+                  n  mean   sd min max  skew kurtosis
+worry           546  5.50 2.06   3  12  0.90     0.23
+sc_state        546  8.37 2.30   3  12 -0.41    -0.38
+math_anxiety    546 22.25 7.57   9  44  0.17    -0.64
+sc_trait        546 27.05 5.97  10  40  0.21    -0.53
+buoyancy        546 19.28 4.89   4  28 -0.34    -0.07
+avoidance       546 17.69 5.26  10  40  1.12     1.69
+math_ability_T0 546 11.79 7.89   0  32  0.45    -0.76
+
+By gender x grade (M, SD):
+  Gender Grade       worry    sc_state math_anxiety     sc_trait     buoyancy    avoidance math_ability_T0
+1      F     4 6.10 (2.03) 7.65 (2.21) 24.01 (7.27) 26.26 (5.52) 18.67 (4.63) 17.31 (4.88)     8.62 (6.43)
+2      M     4 4.93 (1.78) 9.15 (1.96) 20.65 (7.94) 27.88 (5.78) 20.11 (5.17) 17.55 (5.54)    12.61 (7.67)
+3      F     5 5.83 (2.35) 7.69 (2.23) 23.12 (6.76) 25.99 (6.18) 18.41 (4.67) 18.17 (4.72)    12.97 (7.91)
+4      M     5 4.77 (1.80) 9.34 (2.45) 20.06 (7.23) 28.56 (6.74) 20.10 (4.87) 18.48 (6.10)    16.95 (8.40)
+
+Correlations (Pearson, child level):
+                worry sc_state math_anxiety sc_trait buoyancy avoidance math_ability_T0
+worry            1.00    -0.58         0.50    -0.25    -0.39      0.19           -0.30
+sc_state        -0.58     1.00        -0.41     0.36     0.46     -0.25            0.43
+math_anxiety     0.50    -0.41         1.00    -0.38    -0.44      0.38           -0.37
+sc_trait        -0.25     0.36        -0.38     1.00     0.34     -0.35            0.26
+buoyancy        -0.39     0.46        -0.44     0.34     1.00     -0.33            0.30
+avoidance        0.19    -0.25         0.38    -0.35    -0.33      1.00           -0.22
+math_ability_T0 -0.30     0.43        -0.37     0.26     0.30     -0.22            1.00
+
+#### PSYCHOMETRICS (item-level available only for buoyancy and avoidance) ####
+ chisq.scaled            df pvalue.scaled    cfi.scaled  rmsea.scaled          srmr           cfi         rmsea 
+        2.991         2.000         0.224         0.998         0.030         0.015         1.000         0.000 
+ buoy 
+0.666 
+[1] 0.52 0.77 0.51 0.61
+ chisq.scaled            df pvalue.scaled    cfi.scaled  rmsea.scaled          srmr           cfi         rmsea 
+      149.252        35.000         0.000         0.924         0.077         0.067         0.972         0.059 
+   av 
+0.789 
+ [1] 0.72 0.56 0.63 0.52 0.47 0.56 0.56 0.62 0.67 0.69
+Ordinal alpha buoyancy / avoidance: 0.695 / 0.844 
+
+#### BIVARIATE: child-level choice proportions x predictors ####
+       worry sc_state math_anxiety sc_trait buoyancy avoidance math_ability_T0
+p_skip  0.12    -0.20         0.15    -0.15    -0.09      0.21           -0.39
+p_help  0.26    -0.22         0.19    -0.13    -0.10      0.14           -0.41
+p_self -0.27     0.27        -0.22     0.17     0.12     -0.20            0.50
+
+VIF (child-level lm on p_self):
+          worry_z        sc_state_z    math_anxiety_z        sc_trait_z        buoyancy_z       avoidance_z math_ability_T0_z 
+             1.73              1.86              1.70              1.33              1.47              1.28              1.31 
+
+#### SLIDE ROBUSTNESS LM (skip=0, help=1, self=2) replicated, and p_self ####
+                  Estimate Std. Error t value Pr(>|t|)
+(Intercept)          0.019      0.050   0.371    0.711
+worry_z             -0.137      0.047  -2.931    0.004
+sc_state_z           0.027      0.049   0.555    0.579
+math_anxiety_z       0.021      0.046   0.462    0.644
+sc_trait_z           0.032      0.041   0.773    0.440
+buoyancy_z          -0.117      0.043  -2.740    0.006
+avoidance_z         -0.104      0.041  -2.578    0.010
+math_ability_T0_z    0.512      0.041  12.559    0.000
+GenderM             -0.041      0.077  -0.524    0.600
+                  Estimate Std. Error t value Pr(>|t|)
+(Intercept)          0.026      0.052   0.510    0.610
+worry_z             -0.171      0.048  -3.549    0.000
+sc_state_z           0.005      0.051   0.105    0.917
+math_anxiety_z       0.027      0.048   0.558    0.577
+sc_trait_z           0.015      0.042   0.358    0.721
+buoyancy_z          -0.115      0.044  -2.601    0.010
+avoidance_z         -0.100      0.042  -2.394    0.017
+math_ability_T0_z    0.473      0.042  11.220    0.000
+GenderM             -0.058      0.080  -0.721    0.471
+
+#### BINARY GLMMs (crossed id/class/item): full model and one-predictor-at-a-time (+ ability + gender) ####
+[[1]]
+[1] "lme4"      "Matrix"    "stats"     "graphics"  "grDevices" "utils"     "datasets"  "methods"   "base"     
+
+[[2]]
+[1] "lme4"      "Matrix"    "stats"     "graphics"  "grDevices" "utils"     "datasets"  "methods"   "base"     
+
+[[3]]
+[1] "lme4"      "Matrix"    "stats"     "graphics"  "grDevices" "utils"     "datasets"  "methods"   "base"     
+
+[[4]]
+[1] "lme4"      "Matrix"    "stats"     "graphics"  "grDevices" "utils"     "datasets"  "methods"   "base"     
+
+[[5]]
+[1] "lme4"      "Matrix"    "stats"     "graphics"  "grDevices" "utils"     "datasets"  "methods"   "base"     
+
+[[6]]
+[1] "lme4"      "Matrix"    "stats"     "graphics"  "grDevices" "utils"     "datasets"  "methods"   "base"     
+
+[[7]]
+[1] "lme4"      "Matrix"    "stats"     "graphics"  "grDevices" "utils"     "datasets"  "methods"   "base"     
+
+[[8]]
+[1] "lme4"      "Matrix"    "stats"     "graphics"  "grDevices" "utils"     "datasets"  "methods"   "base"     
+
+        outcome          model              term      est     se        p
+         y_self           FULL           worry_z -0.30152 0.0922 1.07e-03
+         y_self           FULL        sc_state_z  0.01262 0.0967 8.96e-01
+         y_self           FULL    math_anxiety_z  0.05811 0.0918 5.27e-01
+         y_self           FULL        sc_trait_z  0.07602 0.0860 3.77e-01
+         y_self           FULL        buoyancy_z -0.18314 0.0857 3.26e-02
+         y_self           FULL       avoidance_z -0.14745 0.0805 6.71e-02
+         y_self           FULL math_ability_T0_z  0.93310 0.0863 3.11e-27
+         y_self           FULL           GenderM -0.09105 0.1530 5.52e-01
+         y_self    FULL_idonly           worry_z -0.30447 0.0910 8.19e-04
+         y_self    FULL_idonly        sc_state_z  0.00908 0.0958 9.24e-01
+         y_self    FULL_idonly    math_anxiety_z  0.06209 0.0906 4.93e-01
+         y_self    FULL_idonly        sc_trait_z  0.03597 0.0804 6.55e-01
+         y_self    FULL_idonly        buoyancy_z -0.19680 0.0844 1.96e-02
+         y_self    FULL_idonly       avoidance_z -0.17571 0.0789 2.59e-02
+         y_self    FULL_idonly math_ability_T0_z  0.94577 0.0818 6.60e-31
+         y_self    FULL_idonly           GenderM -0.05383 0.1519 7.23e-01
+         y_self        worry_z           worry_z -0.26186 0.0755 5.20e-04
+         y_self     sc_state_z        sc_state_z  0.14085 0.0821 8.64e-02
+         y_self math_anxiety_z    math_anxiety_z -0.08460 0.0782 2.79e-01
+         y_self     sc_trait_z        sc_trait_z  0.11636 0.0796 1.44e-01
+         y_self     buoyancy_z        buoyancy_z -0.03750 0.0764 6.24e-01
+         y_self    avoidance_z       avoidance_z -0.15061 0.0736 4.07e-02
+ y_skip_vs_help           FULL           worry_z -0.28504 0.0948 2.64e-03
+ y_skip_vs_help           FULL        sc_state_z -0.04289 0.0990 6.65e-01
+ y_skip_vs_help           FULL    math_anxiety_z  0.04281 0.0947 6.51e-01
+ y_skip_vs_help           FULL        sc_trait_z -0.02749 0.0884 7.56e-01
+ y_skip_vs_help           FULL        buoyancy_z  0.03015 0.0887 7.34e-01
+ y_skip_vs_help           FULL       avoidance_z  0.17436 0.0817 3.29e-02
+ y_skip_vs_help           FULL math_ability_T0_z -0.29574 0.0949 1.83e-03
+ y_skip_vs_help           FULL           GenderM -0.18154 0.1620 2.62e-01
+ y_skip_vs_help    FULL_idonly           worry_z -0.27572 0.0968 4.39e-03
+ y_skip_vs_help    FULL_idonly        sc_state_z -0.02627 0.1017 7.96e-01
+ y_skip_vs_help    FULL_idonly    math_anxiety_z  0.05307 0.0967 5.83e-01
+ y_skip_vs_help    FULL_idonly        sc_trait_z -0.01838 0.0874 8.33e-01
+ y_skip_vs_help    FULL_idonly        buoyancy_z  0.01630 0.0908 8.57e-01
+ y_skip_vs_help    FULL_idonly       avoidance_z  0.15918 0.0835 5.65e-02
+ y_skip_vs_help    FULL_idonly math_ability_T0_z -0.31603 0.0948 8.55e-04
+ y_skip_vs_help    FULL_idonly           GenderM -0.13728 0.1661 4.08e-01
+ y_skip_vs_help        worry_z           worry_z -0.22194 0.0774 4.16e-03
+ y_skip_vs_help     sc_state_z        sc_state_z  0.06446 0.0836 4.41e-01
+ y_skip_vs_help math_anxiety_z    math_anxiety_z  0.00867 0.0795 9.13e-01
+ y_skip_vs_help     sc_trait_z        sc_trait_z -0.05744 0.0804 4.75e-01
+ y_skip_vs_help     buoyancy_z        buoyancy_z  0.02787 0.0787 7.23e-01
+ y_skip_vs_help    avoidance_z       avoidance_z  0.15175 0.0729 3.74e-02
+         y_skip           FULL           worry_z -0.09571 0.0871 2.72e-01
+         y_skip           FULL        sc_state_z -0.02873 0.0910 7.52e-01
+         y_skip           FULL    math_anxiety_z  0.03242 0.0856 7.05e-01
+         y_skip           FULL        sc_trait_z -0.06426 0.0799 4.21e-01
+         y_skip           FULL        buoyancy_z  0.11099 0.0811 1.71e-01
+         y_skip           FULL       avoidance_z  0.23747 0.0755 1.65e-03
+         y_skip           FULL math_ability_T0_z -0.73967 0.0864 1.12e-17
+         y_skip           FULL           GenderM -0.09696 0.1472 5.10e-01
+         y_skip    FULL_idonly           worry_z -0.08611 0.0874 3.25e-01
+         y_skip    FULL_idonly        sc_state_z -0.02021 0.0917 8.26e-01
+         y_skip    FULL_idonly    math_anxiety_z  0.03583 0.0861 6.77e-01
+         y_skip    FULL_idonly        sc_trait_z -0.04951 0.0776 5.24e-01
+         y_skip    FULL_idonly        buoyancy_z  0.10481 0.0815 1.98e-01
+         y_skip    FULL_idonly       avoidance_z  0.22873 0.0756 2.49e-03
+         y_skip    FULL_idonly math_ability_T0_z -0.76950 0.0832 2.31e-20
+         y_skip    FULL_idonly           GenderM -0.06869 0.1478 6.42e-01
+         y_skip        worry_z           worry_z -0.05319 0.0722 4.61e-01
+         y_skip     sc_state_z        sc_state_z -0.01383 0.0772 8.58e-01
+         y_skip math_anxiety_z    math_anxiety_z  0.07767 0.0728 2.86e-01
+         y_skip     sc_trait_z        sc_trait_z -0.12230 0.0730 9.40e-02
+         y_skip     buoyancy_z        buoyancy_z  0.02674 0.0721 7.11e-01
+         y_skip    avoidance_z       avoidance_z  0.22667 0.0672 7.39e-04
+
+Random-effect SDs (full models):
+y_self FULL singular: FALSE 
+    grp sdcor
+1    id 1.501
+2  item 0.406
+3 class 0.464
+y_self FULL_idonly singular: FALSE 
+  grp sdcor
+1  id  1.53
+y_skip_vs_help FULL singular: FALSE 
+    grp sdcor
+1    id 1.286
+2  item 0.140
+3 class 0.373
+y_skip_vs_help FULL_idonly singular: FALSE 
+  grp sdcor
+1  id  1.34
+y_skip FULL singular: FALSE 
+    grp sdcor
+1    id 1.213
+2  item 0.276
+3 class 0.309
+y_skip FULL_idonly singular: FALSE 
+  grp sdcor
+1  id  1.25

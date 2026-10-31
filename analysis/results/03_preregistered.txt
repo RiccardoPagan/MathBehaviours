@@ -1,0 +1,68 @@
+Buoyancy CFA: 0.998 0.03 -> included: TRUE 
+Avoidance CFA: 0.923 0.078  residuals: -> included: FALSE 
+Buoyancy-avoidance r = -0.328 
+Trials analysed: 17141  children: 547 
+
+#### STAGE 1 ####
+M0
+  max Rhat: 1  min bulk ESS: 698  divergences: 0 
+  Pareto k > 0.7 (trials): 0 
+M1
+  max Rhat: 1.01  min bulk ESS: 538  divergences: 0 
+  Pareto k > 0.7 (trials): 0 
+      step elpd_diff se_diff clear
+1 M1 vs M0     0.278     0.7 FALSE
+Selected Stage-1 model: M0 
+
+#### STAGE 2 ####
+M0_cs_worry_z 
+  max Rhat: 1.01  min bulk ESS: 696  divergences: 0 
+  Pareto k > 0.7 (trials): 0 
+                     step elpd_diff se_diff clear
+1 cs(worry_z) vs previous      21.8    7.24  TRUE
+M0_cs_worry_z_sc_state_z 
+  max Rhat: 1.01  min bulk ESS: 500  divergences: 0 
+  Pareto k > 0.7 (trials): 0 
+                        step elpd_diff se_diff clear
+1 cs(sc_state_z) vs previous    -0.237    1.91 FALSE
+Final model terms: cs(worry_z) sc_state_z math_ability_T0_z Gender 
+
+#### FINAL MODEL ####
+ Family: cumulative 
+  Links: mu = logit; disc = identity 
+Formula: choice_ord | weights(n) ~ cs(worry_z) + sc_state_z + math_ability_T0_z + Gender + (1 | id) 
+   Data: ag (Number of observations: 1341) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Group-Level Effects: 
+~id (Number of levels: 547) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     1.35      0.05     1.25     1.46 1.00     1153     1973
+
+Population-Level Effects: 
+                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept[1]         -3.22      0.09    -3.40    -3.03 1.00      876     1504
+Intercept[2]         -0.79      0.09    -0.96    -0.62 1.00      815     1437
+sc_state_z            0.01      0.08    -0.14     0.16 1.01      723     1248
+math_ability_T0_z     0.87      0.07     0.73     1.01 1.00      868     1697
+GenderM              -0.09      0.13    -0.35     0.17 1.00      782     1369
+worry_z[1]           -0.02      0.08    -0.17     0.14 1.00      727     1401
+worry_z[2]           -0.23      0.08    -0.38    -0.08 1.00      696     1395
+
+Family Specific Parameters: 
+     Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+disc     1.00      0.00     1.00     1.00   NA       NA       NA
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+       parameter     est     se     lo      hi   p_one   p_fdr
+1 bcs_worry_z[1] -0.0190 0.0795 -0.172  0.1402 0.40558 0.42954
+2 bcs_worry_z[2] -0.2329 0.0757 -0.381 -0.0818 0.00104 0.00313
+3   b_sc_state_z  0.0136 0.0768 -0.137  0.1627 0.42954 0.42954
+Path a (math anxiety -> worry): 0.429  (self-competence -> perceived competence): 0.244 
+                                     path      est     se      lo      hi   p_one   p_fdr
+1    sc_trait -> sc_state -> b_sc_state_z  0.00327 0.0188 -0.0333  0.0404 0.43100 0.43100
+2 math_anxiety -> worry -> bcs_worry_z[1] -0.00806 0.0342 -0.0756  0.0609 0.40686 0.43100
+3 math_anxiety -> worry -> bcs_worry_z[2] -0.09981 0.0336 -0.1686 -0.0350 0.00148 0.00444

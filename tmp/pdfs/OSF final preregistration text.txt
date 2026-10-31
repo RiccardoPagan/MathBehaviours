@@ -1,0 +1,407 @@
+PAGE 1
+From Attitudes to Behaviour: How Math Attitudes Influence Students’ Behavioural Choices 
+in Primary School 
+ 
+Overview 
+Research questions or hypotheses 
+To date, mathematics-related behaviors such as avoidance have primarily been studied through 
+self-report measures or long-term outcomes like course selection and career choices (Pizzie & 
+Kraemer, 2017). However, in primary school, where opting out of mathematics is not feasible, 
+alternative approaches are needed to capture students' real-time behavioural choices (Hilz et 
+al., 2025). The present study introduces an innovative behavioral measure by observing choices 
+during a mathematical task, making it exploratory for its ordinal structure while hypothesizing 
+monotonic task engagement from lower (skipping) to higher (self-reliance) levels. For further 
+details about study design and method, see the section below. The aim of this study is to 
+investigate the two following closely related research questions within an ordinal modelling 
+framework, for which statistical power is planned. RQ1 examines how trait- and state-level 
+math attitudes predict those choices and whether state-level attitudes mediate the effects of 
+their trait-level counterparts, whereas RQ2 concerns the ordinal structure of behavioural 
+choices. The two questions are therefore considered together, as they address the same 
+behavioural outcome from complementary perspectives. RQ1: Whether the following math 
+attitudes (avoidance, buoyancy, worry and perceived competence) predict students’ 
+behavioural choices during the mathematical task (i.e., skipping, help-seeking, and self-reliant 
+responding), controlling for gender and math ability, and do state-level attitudes statistically 
+account for part of the association between their corresponding trait-level measures and these 
+choices? HP1: Given the multiple data-dependent decisions involved, the analyses addressing 
+RQ1 are best characterised as inferentially exploratory rather than strictly confirmatory. 
+Specifically, directional hypotheses are preregistered a priori, but their formal testing depends 
+on a sequence of model-selection and predictor-screening decisions that cannot be fully fixed 
+in advance. We therefore treat the final p-values as conditional on the selected model and 
+acknowledge that this procedure provides only imperfect control over false positive results. 
+Specifically, while the direction of expected effects is grounded in converging evidence (Choe et 
+al., 2019; Putwain et al., 2020; Wang et al., 2025), the final set of predictors, the mediation 
+structure, and the response parameterisation cannot be fully determined in advance. Predictor 
+inclusion will follow the model-building procedure described in the “Statistical models” section. 
+Math anxiety and self-competence are hypothesised to influence behavioural choices primarily 
+through their state-level counterparts (math anxiety via worry, and self-competence via 
+perceived competence), whereas buoyancy and avoidance, if psychometrically adequate, are 
+expected to contribute directly to choice. After accounting for prior math ability and gender, 
+students with more adaptive motivational-affective profiles are expected to show greater task 
+engagement. Specifically, higher academic buoyancy and higher perceived competence are 
+expected to predict more engaged behavioural choices (i.e., self-reliant responding), whereas 
+higher avoidance and higher worry are expected to predict less engaged choices (i.e., skipping). 
+Prior math ability from T0 and gender will be included as covariates in all models to distinguish 
+ability-driven from attitude-driven variation in choices. The two-stage model-building procedure 
+described in the Statistical models section is designed to detect and accommodate such 
+patterns. RQ2: Within the ordinal representation of students’ behavioural choices during the 
+mathematical task (skipping < help-seeking < self-reliance), do some predictors require 
+
+PAGE 2
+category-specific effects across ordinal transitions? HP2: We expect students’ behavioural 
+choices to be compatible with an ordered representation of task engagement, in which skipping 
+reflects lower engagement, help-seeking an intermediate form, and self-reliant responding 
+higher engagement. These effects are expected to be monotonic across the ordinal continuum 
+from skipping to help-seeking to self-reliance. However, we acknowledge that the proportional-
+odds assumption may not hold uniformly for all predictors: some attitude variables may 
+differentiate more strongly between specific transitions than others, warranting category-
+specific parameterisation for those predictors. If the proportional-odds assumption is not 
+supported for one or more predictors, category-specific ordinal parameterisations will be 
+estimated. Inferential tests will be conducted only after model selection has been completed 
+according to the preregistered criteria. All inferential results will therefore be explicitly reported 
+as conditional on the selected model and should not be interpreted as if the final model had 
+been fixed a priori. 
+Foreknowledge of data or evidence 
+Data exists but the authors have not observed it yet. At least some of the data that will be used 
+for this analysis plan exists and is possible for the authors to access. However, the authors 
+certify that they have not accessed any of that data and will not do so until after this plan is 
+registered. 
+Explanation of foreknowledge and managing unintended influences 
+Data collection is ongoing and is expected to conclude in late May 2026. This registration was 
+completed prior to any human observation of the raw data. Registration is prior to any human 
+observation of the raw data. 
+Research Design 
+Study type 
+Non-randomized study: Does not include random assignment of subjects to treatments or 
+conditions. This usually includes correlational studies, observational studies, surveys, natural 
+experiments, real-world evidence studies, regression discontinuity designs, and descriptive 
+studies. 
+Intention for causal interpretation 
+Indirect inference on causal relationship(s): This study is intended to examine a potential causal 
+relationship, but is not designed to isolate the specific causal effect. This work may inform 
+causal inference indirectly or advance insight toward future estimation of a causal relationship.  
+Blinding of experimental treatments 
+No blinding is involved. 
+Additional blinding during research or analysis 
+No data 
+Study design 
+The study employs two sessions (T0 and T1) to examine the relationships between math 
+attitudes (both trait- and state-level), math behavioural choice, and math ability. At T0, 
+
+PAGE 3
+participants complete a first block of 16 arithmetic problems, followed by two state 
+questionnaires assessing worry and perceived competence. The session then continues with a 
+second block of 16 arithmetic problems. At the end of the session, participants complete two 
+trait questionnaires assessing math anxiety and academic buoyancy. At T1, participants 
+complete 32 arithmetic problems divided into two equal blocks. Unlike T0, each problem is 
+presented together with three response options corresponding to different behavioural choices: 
+participants may skip the item and move on to the next one, request a hint before attempting 
+the problem, or solve the problem independently. After completing both blocks of the math 
+task, participants complete the remaining two trait questionnaires assessing math avoidance 
+and math self-competence. All tasks are administered by computer in small groups within the 
+classroom. For both RQ1 and RQ2, the primary outcome variable is students’ item-level 
+behavioural choice during the math task (i.e., skipping, help-seeking, or self-reliance 
+behaviour). The primary working assumption is that behavioural choice can be represented as 
+an ordinal outcome (skipping < help-seeking < self-reliance). RQ2 evaluates whether this 
+ordinal representation is adequate under proportional odds or whether selected predictors 
+require category-specific effects. Trait- and state-level math attitudes will be included as 
+predictors. No special actions will be taken by the experimenter for participants showing 
+extreme patterns (e.g., skipping all items). Such behaviour is discouraged by two task design 
+features: (1) a mandatory 15-second dwell time per item after each choice, and (2) automated 
+prompts every 5 consecutive skips or help requests, reminding participants of all the available 
+behavioural choices. If the hypothesised ordinal structure proves clearly inadequate, additional 
+follow-up analyses may be conducted to explore whether a categorical specification provides a 
+more appropriate representation of the data. These analyses are not part of the preregistered 
+decision pipeline, are not implemented in the current analysis script, and will be reported 
+explicitly as supplementary, non-preregistered analyses. 
+No files selected 
+Randomization 
+No data 
+Sampling 
+Data collection procedures 
+Participants are recruited by initially contacting the Heads of Public Primary Schools in middle-
+income areas of a Western European country. Once the teachers grant permission, parental 
+consent is requested. The study involves students in the 4th and 5th grades, aged 9 to 11 years. 
+Exclusion criteria include formal diagnoses of intellectual disabilities or neurological/genetic 
+conditions. No financial compensation will be provided. The study has received approval from 
+the Authors’ University ethics committee for psychological research. Data collection takes 
+place during the second half of academic year (2025-2026). The first session (T0) is conducted 
+starting in early March 2026, followed by the second session (T1), which will be conducted 
+between mid-April and late May 2026. 
+Data collection procedures - File upload 
+No files selected 
+Sample size 
+
+PAGE 4
+The sample size is partially constrained by available resources. We aim to recruit approximately 
+35-40 classes, corresponding to an initial target of about 500 students. We anticipate a missing 
+rate of approximately 8% per session, due primarily to school absences (on average, 1-2 out of 
+20 children per class on a given testing day). Additionally, we estimate that approximately 15-20 
+children per class will meet the inclusion criteria and return the signed parental informed 
+consent. Based on these factors, we expect to include 400 eligible participants in the final 
+analysis. Recruitment will continue until 400 eligible participants are obtained or all recruited 
+classes complete both sessions, whichever occurs first. If resources limit recruitment below 
+400, analysis proceeds with the achieved N ≥ 300, where simulations confirm > 90% power 
+(ordinal conceptualization) or adequate Monte Carlo-based standard-error precision for the 
+primary parameters (categorical conceptualization) at N=300. 
+Sample size rationale 
+Two simulation-based sample-size analyses were conducted: one for the primary ordinal 
+analysis and one for a possible multinomial robustness analysis in case the ordinal 
+representation proves inadequate. Full details and the power analysis code are provided in the 
+attached files “PowerAnalysisOrdinal.R” (ordinal conceptualization) and 
+“FastPowerCategorical.R” (categorical conceptualization). In both cases, the power analyses 
+are fully aligned with the planned statistical models outlined in the “Analysis Plan section” and 
+are based on data-generating processes consistent with the large simulated dataset attached in 
+“Study Design section”. The model run in both power analyses includes all the possible 
+predictors and the covariates to be as conservative as possible. The following paragraphs 
+provide a concise overview of both power analysis procedures and their results. 1) Power 
+analysis for the ordinal conceptualization of the dependent variable (math-related behavioural 
+choices) was evaluated using a simulation-based approach with cumulative link mixed models 
+(CLMM). The power analysis implemented in “PowerAnalysisOrdinal.R”, was based on a power 
+simulation with 5,000 iterations Monte Carlo simulation iterations of the full model, including 
+predictors relevant to both RQ1 and RQ2. The simulated logistic linear regression model tested 
+the effects of standardized predictors (buoyancy, avoidance, worry, perceived competence) on 
+ordered behavioural choices collected at T1 (skipping < help-seeking < self-reliance), while 
+controlling for all relevant covariates and random intercept, thus accounting for intersubjective 
+variability. Under the alternative hypothesis, based on coefficients typically reported in 
+literature, betas were set to -0.25 for worry, -0.30 for avoidance, 0.30 buoyancy, and 0.25 for 
+perceived competence, and a subject-level random intercept variance of tau = 1, reflecting 
+moderate individual differences between subjects in baseline behavioural choice disposition. 
+These values correspond to statistically small effects, consistent with those typically observed 
+in psychological research (odds ratios ≈ 0.78 for worry/avoidance, ≈ 1.35 for buoyancy/self-
+competence per 1 SD), equivalent to an effect size of Cohen's d ≈ 0.17 using standard logistic 
+conversion formulas. The simulation incorporated the planned multilevel structure of the study: 
+students aged 9-11 years (target N=400), items nested within students (64 items total, 32 per 
+session with T1 as outcome), and realistic trait-state correlations via a multivariate covariance 
+matrix. Results for H1 indicated power exceeding 80% for detecting each individual predictor 
+effect at alpha = 0.05 (directional, one-sided tests) at N=300. Joint power for detecting all four 
+predictors significant simultaneously was approximately 83% without correction, remaining at 
+~83% after false discovery rate (FDR) correction across the four predictors (buoyancy, 
+avoidance, worry, perceived competence). In order to prove that the simulated process is valid 
+and well-calibrated, null hypothesis (H0) simulations have been conducted with all betas = 0, 
+confirming Type I error rates near 5%. This result demonstrated no true effects present under 
+
+PAGE 5
+the null hypothesis scenario, confirming no inflation of false positives. 2) Power analysis for the 
+categorical conceptualization was conducted using simulation-based methods with multilevel 
+multinomial logistic regression (brms). Due to excessive computational demands for the full 
+model, a streamlined power analysis was implemented. The power analysis implemented in 
+“FastPowerCategorical.R” simulates data across a grid of sample sizes (N=100 to 500 in steps 
+of 50), averaging 10 replications per N to compute variance-covariance matrices of key 
+posterior parameters for RQ2. The simulated model tested the effects of standardized 
+predictors (buoyancy, avoidance, worry, and perceived competence) on categorical behavioural 
+choices at T1 (skip, help-seeking, self-reliance), while controlling for prior math ability at T0, 
+math anxiety, self-competence, gender, and random intercepts. Under the alternative 
+hypothesis (H1), logit coefficients for key contrasts were set to reflect plausible shifts in choice 
+probabilities For skip vs. (help-seeking/self-reliance): buoyancy β= -0.30, avoidance β= +0.30, 
+worry β= +0.25, perceived competence β= -0.25. For help-seeking vs. self-reliance: smaller 
+effects in all the considered predictors (e.g., buoyancy β= -0.15). These yield odds ratios which 
+will range ≈ 0.74-1.35 per 1 SD across primary contrasts, equivalent to an effect size of Cohen's 
+d ≈ 0.17 using standard logistic conversion formulas. As before, the simulation incorporated the 
+planned multilevel structure of the study, with items nested within participants (32 items per 
+participant at session 2 as outcome, across approximately 400 participants aged 9-11 years), 
+and realistic trait-state correlations via a multivariate covariance matrix. Power analysis 
+prioritized the four primary contrasts central to HP2 (effects of buoyancy, avoidance, worry, and 
+perceived competence on self-reliance vs. skipping behaviour). Secondary help-seeking 
+parameters were monitored for completeness, focusing especially on one additional parameter 
+(buoyancy effect on help-seeking). To determine a plausible sample size, we first identified 
+target standard errors for the primary effects after Bonferroni correction across five predictors, 
+corresponding to 80% power. Across a simulation grid (N=100-500), posterior SEs for the four 
+primary parameters fell below target thresholds (ranging from 0.035-0.079) by N=300: effects of 
+buoyancy (0.033), avoidance (0.016), perceived competence (0.032), and worry (0.067). The 
+secondary parameter (buoyancy effect on help-seeking) remained slightly elevated (0.068) 
+compared to its stringent target (0.035) due to its smaller effect simulated (β=0.15) and the 
+conservative Bonferroni correction across five predictors, which is known to reduce power for 
+smaller effects. In this context, MCMC is used to obtain stable coefficient and standard-error 
+estimates for complex multinomial mixed models. The resulting quantities are used for 
+approximate frequentist evaluation of precision and test performance, not for Bayesian 
+posterior inference. Further details on these assumptions and the complete R code for the 
+power analysis can be found in the attached files “PowerAnalysisOrdinal.R” and 
+“FastPowerCategorical.R”. 
+Starting and stopping rules 
+Data collection will stop when either (a) 400 eligible participants with data from both sessions 
+have been obtained, or (b) all previously recruited classes have completed both sessions, 
+whichever occurs first. No interim analyses of the study hypotheses will be conducted before 
+the end of data collection. 
+Variables 
+Manipulated variables 
+None 
+
+PAGE 6
+No files selected 
+Measured variables 
+The experiment includes three main sets of measured variables: math performance, math 
+behavioural choices, trait- and state-level math attitudes. Math Performance: is assessed in 
+both sessions (T0 and T1) using two parallel digital algebraic tasks each consisting of 32 
+different problems (e.g., 34 - ? = 21). A pool of 100 arithmetic problems has been generated 
+using a custom R script, subject to several constraints (e.g., operands ranging from 12 to 99, 
+exclusion of multiples of 10, and balanced positioning of the unknown term across items). The 
+generated pool has been subsequently reviewed and fine-adjusted. For each participant, 32 
+problems per session are randomly sampled from this pool. To prevent repetitions, the sampling 
+algorithm excludes problems already presented in T0 when drawing items for T1. For each item, 
+students have a time limit of 25 seconds, determined through a prior pilot test, to solve the 
+problems and enter the correct answer using the keyboard. 1 point will be assigned for correct 
+and timely answers, while 0 points for incorrect, late or skipped responses. Math behavioural 
+choices: will be assessed only in the second session (T1). For each item, participants will select 
+one of three task-related options: (1) not solving the problem, indicating skipping behaviour; (2) 
+requesting a hint, that provides a brief problem-solving strategy (e.g., for “? – 34 = 16”, the hint 
+would be “Try using the strategy: 34 + 16 = ?”), indicating help-seeking behaviour; or (3) solving 
+the problem independently, reflecting self-reliance behaviour. For each item, the selected 
+behavioural choice yields one categorical choice variable with three levels (skip, help or self), 
+yielding an objective measure of students’ observable behavioural choices adapted from the 
+paradigm proposed by Wang et al. (2025). Trait measures will be assessed using the following 
+self-report questionnaires: - Math anxiety: will be measured using the Abbreviated Mathematics 
+Anxiety Scale for Children (AMAS, Caviola et al., 2017). The 9-item measure assesses 
+participants’ anxiety levels towards mathematics in different scenarios on a 5-point Likert scale, 
+with higher scores indicating greater math anxiety. - Academic Buoyancy: will be measured 
+using the Academic Buoyancy Scale (Martin & Marsh, 2008). The 4-item questionnaire 
+measures students’ ability to cope with everyday academic challenges using a 7-point Likert 
+scale, with higher scores indicating greater academic buoyancy. - Math avoidance: will be 
+assessed using an adapted version of the Math Avoidance Scale (Conlon et al., 2022). The 
+questionnaire measure participants’ avoidant thoughts or behaviours in 10 math-related 
+situations on a 4-point Likert scale, with higher scores indicating greater math avoidance. - Math 
+Self-competence: will be assessed using an adapted version of Harter's questionnaire (2012), 
+measuring scholastic self-competence in the mathematical domain. The final 10-item version 
+measure uses a 4-point Likert scale, with higher scores indicating greater math self-
+competence. An additional variable is also collected at T0, namely trait test anxiety; however, 
+this is not included or analysed in the present study and will be used for other purposes in a 
+different study. State-level math attitudes will be assessed using the following self-report 
+questionnaires administered in close temporal proximity to math performance at T0. - Worry: 
+will be assessed using three adapted items from Mammarella et al. (2023). Items measure 
+participants’ worry levels during the math task on a 4-point Likert scale, with higher scores 
+indicating greater worry. - Perceived Competence: will be assessed using three adapted items 
+from Mammarella et al. (2023). Items measure participants’ perceived competence during the 
+math task on a 4-point Likert scale, with higher scores indicating greater perceived competence. 
+Measured variables - File upload 
+Data_dictionary.csv 
+
+PAGE 7
+Indices 
+For screening measures, a total math score will be calculated based on accuracy in the math 
+task at T0. Sum scores will be used for all trait and state questionnaires. Math behavioural 
+choices will be coded at the item level as described in the “Measured variables” section. 
+Indices - File upload 
+No files selected 
+Analysis Plan 
+Statistical models 
+This section provides a brief overview of the data analysis steps and modelling approach. The 
+full analysis pipeline, including data preparation, model specifications, and hypothesis tests, is 
+implemented in the attached R script “PrePlannedAnalysis.R”, which is applied to a simulated 
+dataset ("SimulatedDatasetBehaviours.csv"). Statistical modelling and hypothesis testing Prior 
+to structural modelling, a confirmatory factor analysis (CFA) will be conducted to evaluate the 
+psychometric adequacy of buoyancy and avoidance as latent constructs. Initial model fit will be 
+evaluated against the pre-specified criteria (CFI > .95; RMSEA < .08). If the initial model does not 
+meet these criteria, modification indices may be inspected in a limited and theory-constrained 
+way. At most two correlated residuals will be added, and only when they involve item pairs with 
+clear substantive or wording overlap. Any such re-specification will be documented explicitly 
+and treated as a pragmatic measurement adjustment rather than as confirmatory evidence for 
+the revised measurement model. Reliability will be evaluated using ordinal alpha and treated as 
+a descriptive indicator of measurement adequacy rather than as a strict pass/fail criterion. 
+Values clearly below conventional standards will be discussed as a limitation and may motivate 
+sensitivity analyses excluding the corresponding construct. Additionally, prior to including both 
+constructs in the structural model, multicollinearity between buoyancy and avoidance will be 
+assessed; if the inter-construct correlation exceeds |r| > .70, the two predictors will not be 
+entered simultaneously in the same primary model. In that case, separate sensitivity models 
+will be estimated for each construct, and the main confirmatory inference will be restricted to 
+predictors that can be included without problematic redundancy. If one or both constructs fail 
+the pre-specified fit criteria, the corresponding variable(s) will be excluded from all structural 
+models, and this exclusion will be transparently reported. In this case, the primary analysis will 
+proceed with the retained predictors only. RQ1. The model-building strategy then proceeds in 
+three sequential steps. First, within the ordinal family, the predictor structure will be established 
+through nested cumulative logit mixed-effects models estimated in brms. The baseline model 
+(M0) includes only state-level predictors (worry and perceived competence), the covariates 
+(prior math ability at T0 and gender), and a random intercept for participant. This constitutes the 
+full mediation model. M1 extends M0 by adding buoyancy and avoidance as direct predictors of 
+choice, conditional on satisfactory psychometric screening and acceptable multicollinearity. 
+M2 extends M1 by adding direct paths from math anxiety and self-competence to choice, 
+thereby testing partial against full mediation. M2 will be estimated only if M1 is preferred over 
+M0. RQ2. Starting from the Stage-1 selected ordinal model, category-specific extensions will be 
+evaluated by relaxing the proportional-odds constraint for selected predictors and comparing 
+each extension against its predecessor via LOO. In the current analysis script, this step is 
+implemented as a worked example and template for the same comparison logic. Each 
+extension will be compared against its predecessor via LOO, and a category-specific 
+
+PAGE 8
+parameterisation will be retained only if the more complex model is clearly preferred. The model 
+retained at the end of the preregistered selection pipeline will be used for the inferential tests, 
+and all inferential results will be reported as conditional on that selected model. For the 
+selected best-fitting model, directional inferences will be conducted for each retained primary 
+predictor. For predictors satisfying proportional odds, a single coefficient will be interpreted. For 
+predictors with category-specific effects, coefficients will be interpreted separately. Because 
+the analysis combines preregistered model selection with MCMC-based estimation, all 
+inferential results will be interpreted within a pragmatic frequentist framework and treated as 
+conditional on the selected model. MCMC is used here as a computational device to 
+approximate parameter estimates and standard errors in models for which simpler estimation 
+routines are not readily available, not as a basis for Bayesian inference. Multiplicity adjustment 
+will be applied only across the retained primary directional effects using the FDR procedure. 
+Secondary and exploratory parameters will be reported descriptively and clearly distinguished 
+from the preregistered primary effects.  
+Statistical models - File upload 
+PrePlannedAnalysis.RPowerCategorical.zipPowerOrdinal.zipSimulatedDatasetBehaviours
+.csv 
+Transformations 
+Data will be imported and pre-processed to include trials from T1, which constitute the 
+outcome of interest. Measures of math performance and math attitudes assessed both at T0, 
+including both trait- and state-level variables, as well as additional trait-level measures 
+collected at Session 2 (T1), will be merged with the behavioural data and included as predictors 
+or covariates. For each item at T1, a single outcome variable (choice) will be derived, indicating 
+the behavioural option selected by the student (skipping, help-seeking, self-reliance). All 
+continuous predictors will be standardized (z-scores).  
+Inference criteria 
+To address both RQs, the model with higher ELPD under Pareto-smoothed LOO-CV will be 
+selected as best-fitting (see "PrePlannedAnalysis.R"). Specifically, the differential ELPD must 
+exceed twice its standard error, consistent with conventional LOO-CV thresholds (Vehtari et al., 
+2017). This applies to all pairwise model comparisons in the two-stage model-building 
+procedure: M0 vs. M1, M1 vs. M2 (Stage 1), and each successive extension vs. its predecessor 
+(Stage 2). At each step, if the more complex model is not clearly preferred, the simpler model is 
+retained, and the pipeline does not proceed to the next extension. To address RQ1, effects will 
+be evaluated using one-tailed p-values based on MCMC-estimated coefficients and their 
+associated standard errors. For the primary directional hypotheses, p-values < .05 after 
+multiplicity correction will be treated as statistically significant. These p-values are interpreted 
+as approximate frequentist quantities, conditional on the selected model, and should be read 
+with caution given the data-dependent model-selection procedure. Accordingly, the inferential 
+claims are modest: statistical significance is used as one decision criterion, not as definitive 
+evidence, and residual inflation of false positives cannot be ruled out. Directional expectations 
+are specified a priori: positive coefficients expected for academic buoyancy and perceived 
+competence (reflecting a higher probability of self-reliant behaviour relative to help-seeking and 
+skipping), and negative for avoidance and worry (reflecting a higher probability of skipping 
+relative to help-seeking and self-reliant behaviour). If one or both constructs fail the pre-
+
+PAGE 9
+specified fit criteria, the corresponding variable(s) will be excluded from all structural models, 
+and this exclusion will be transparently reported. In this case, the primary analysis will proceed 
+with the retained predictors only. For the selected best-fitting model, directional hypothesis 
+tests will be conducted for each primary predictor retained in the final model. The number of 
+primary comparisons ranges from two to four, depending on the inclusion of buoyancy and 
+avoidance (conditional on measurement model fit). Since RQ1 tests, potentially, all four 
+predictors simultaneously, p-values for the preregistered primary directional effects retained in 
+the final selected model will be adjusted using the False Discovery Rate (FDR) procedure. We 
+note, however, that because predictor inclusion and model structure are themselves data-
+dependent, this correction only partially addresses the overall false positive risk and does not 
+fully account for the full analytic search process. Indirect effects will be estimated by 
+multiplying posterior draws from the relevant trait-to-state model (path a) by posterior draws 
+from the corresponding coefficient(s) in the selected behavioural-choice model (path b). These 
+indirect effects will be interpreted cautiously as conditional statistical decompositions rather 
+than as strong causal mediation effects, given the partially time-lagged and partially concurrent 
+measurement structure of the study. 
+Data inclusion and exclusion 
+Participants will be excluded from the primary analysis if they are missing the entire T1 
+behavioural task, if they lack the T0 math-ability covariate, or if technical problems prevent 
+reconstruction of their item-level choices. Participants showing extreme but technically valid 
+behavioural patterns (e.g., skipping all items) will not be excluded on that basis alone, because 
+such patterns are substantively relevant to the research question. 
+Missing data 
+We expect a low rate of missing data for the questionnaire responses, as participants are forced 
+to answer every item, with the task being administered on a computer. However, math trials in 
+session 2 (32 items) may exhibit higher apparent missingness due to the explicit skip option 
+alongside help-seeking and self-reliant choices. Skipped trials will not be treated as missing but 
+will be retained as distinct behavioural category ("choice”=skip) in the outcome variable, with 
+task accuracy coded as 0. 
+Other planned analysis 
+To inform future research, exploratory analyses may examine whether demographic 
+characteristics are associated with the behavioural outcomes of interest or moderate the 
+observed effects. These analyses are intended to be descriptive and hypothesis-generating and 
+will be clearly distinguished from the preregistered confirmatory analyses. 
+Other 
+Context and additional information 
+No data 
+ 

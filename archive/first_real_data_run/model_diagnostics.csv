@@ -1,0 +1,3 @@
+"model","draws","chains","max_rhat","min_ess_bulk","min_ess_tail","divergences"
+"final_choice_model",2000,4,1.01698439982522,296.040978452063,704.274108122871,0
+"selected_stage1_model",2000,4,1.0134991243834,292.30177814937,414.826104217799,0
